@@ -1,0 +1,460 @@
+<!-- 3.5 Approach -->
+<section id="approach" class="approach section">
+    <div class="container container-wide">
+        <div class="section-header text-left fade-in-up">
+            <span class="section-badge badge-orange">SOLUTION APPROACH</span>
+            <h2 class="section-title">Torchの解決アプローチ</h2>
+        </div>
+
+        <div class="approach-split">
+            <!-- Left UI Mockup -->
+            <div class="approach-mockup fade-in-left">
+                <div class="window-frame">
+                    <div class="window-header">
+                        <span class="window-title">Torch レポートランチャー v5.0</span>
+                        <div class="window-controls">
+                            <span>_</span><span>□</span><span>×</span>
+                        </div>
+                    </div>
+                    <div class="window-body">
+                        <div class="mockup-header">
+                            <span class="mockup-logo">TORCH</span> レポートランチャー v5.0 <span class="mockup-sub">思考OS x
+                                スキーマ対応</span>
+                        </div>
+                        <div class="mockup-tabs">
+                            <div class="tab active">レポート生成</div>
+                            <div class="tab">JSON作成フォーム</div>
+                        </div>
+                        <div class="mockup-form">
+                            <div class="form-group-mock">
+                                <label>① JSONファイルを選択</label>
+                                <div class="input-with-button">
+                                    <input type="text" disabled>
+                                    <button class="btn-mock">参照</button>
+                                </div>
+                            </div>
+                            <div class="form-group-mock">
+                                <label>② モードを選択</label>
+                                <div class="radio-group-mock">
+                                    <div class="radio-mock active">
+                                        <div class="radio-circle">●</div>
+                                        <div>
+                                            <div class="radio-title">MODE B テキストモード</div>
+                                            <div class="radio-desc">スコアなし・景色描写型</div>
+                                        </div>
+                                    </div>
+                                    <div class="radio-mock">
+                                        <div class="radio-circle">○</div>
+                                        <div>
+                                            <div class="radio-title">MODE C ハイブリッド</div>
+                                            <div class="radio-desc">スコア+テキスト・フェーズ適合率</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group-mock">
+                                <label>③ 出力先フォルダ (自動作成)</label>
+                                <div class="input-with-button">
+                                    <input type="text" value="C:\Users\accom\Documents\TorchReports" disabled>
+                                    <button class="btn-mock">変更</button>
+                                </div>
+                            </div>
+                            <div class="checkbox-mock">
+                                <input type="checkbox" checked disabled style="accent-color: #f97316;"> HTMLのみ生成
+                                (PDFをスキップ)
+                            </div>
+                            <button class="btn-mock-primary">レポートを生成する</button>
+                            <div class="mockup-status">準備完了: JSONファイルを選んでボタンを押してください</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Content -->
+            <div class="approach-content fade-in-right">
+                <h3 class="approach-headline">商談ログから <span class="highlight-text">失注の癖を 2週間で可視化</span></h3>
+                <p class="approach-subtext">感覚的な指導はもう不要。<br>ブラックボックス化していた商談プロセスに、科学的なメスを入れます。</p>
+
+                <div class="approach-feature-list">
+                    <div class="feature-item">
+                        <div class="feature-icon"><i data-lucide="cloud"></i></div>
+                        <div class="feature-text">
+                            <h4>文字起こしをアップロードするだけ</h4>
+                            <p>面倒な入力作業は一切不要。ZoomやTeamsの商談ログ、または録音データをそのまま活用できます。</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i data-lucide="brain"></i></div>
+                        <div class="feature-text">
+                            <h4>AIが「6思考OS×5フェーズ」解析</h4>
+                            <p>独自の心理学ロジックに基づき、顧客タイプと商談フェーズの適合度を多角的にスコアリングします。</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i data-lucide="bar-chart-2"></i></div>
+                        <div class="feature-text">
+                            <h4>個人の癖を定量・定性でレポート化</h4>
+                            <p>「沈黙が待てない」「自己開示不足」など、無意識の行動パターンを客観データとして提示します。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3.6 Values -->
+<section id="values" class="values section">
+    <div class="container relative-container container-wide">
+        <div class="section-header text-center fade-in-up">
+            <span class="section-badge badge-orange">CORE VALUE PROPOSITION</span>
+            <h2 class="section-title">Torchが提供する3つの価値</h2>
+        </div>
+        <div class="values-grid">
+            <div class="value-card fade-in-up" style="transition-delay: 0.1s;">
+                <div class="value-icon-wrapper">
+                    <img src="https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/search.svg" alt="Search"
+                        class="value-icon-img" style="filter: invert(1); width: 40px;">
+                </div>
+                <h3>失注パターンの特定</h3>
+                <p>「なぜ負けたか」の根本原因を構造的に解明します。感覚的な振り返りではなく、フェーズごとのボトルネックを特定。</p>
+                <div class="value-discovery">
+                    <div class="discovery-title">
+                        <span class="bulb">💡</span> 発見の例
+                    </div>
+                    <ul class="discovery-list">
+                        <li>「心理的安全性の構築に失敗している」</li>
+                        <li>「独自の示唆（インサイト）が不足している」</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="value-card fade-in-up" style="transition-delay: 0.2s;">
+                <div class="value-icon-wrapper">
+                    <img src="https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/check-square.svg"
+                        alt="Check" class="value-icon-img"
+                        style="filter: invert(60%) sepia(85%) saturate(300%) hue-rotate(80deg) brightness(95%) contrast(90%); width: 40px;">
+                </div>
+                <h3>個人の癖の可視化</h3>
+                <p>無意識のコミュニケーション癖をデータ化します。本人が気づいていない「話し方の偏り」を客観的に指摘。</p>
+                <div class="value-discovery">
+                    <div class="discovery-title">
+                        <span class="bulb">💡</span> 発見の例
+                    </div>
+                    <ul class="discovery-list">
+                        <li>「沈黙が怖くて話しすぎてしまう」</li>
+                        <li>「自己開示ができず信頼関係が浅い」</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="value-card fade-in-up" style="transition-delay: 0.3s;">
+                <div class="value-icon-wrapper">
+                    <img src="https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/line-chart.svg"
+                        alt="Chart" class="value-icon-img"
+                        style="filter: invert(50%) sepia(80%) saturate(300%) hue-rotate(330deg) brightness(100%) contrast(95%); width: 40px;">
+                </div>
+                <h3>研修効果の継続測定</h3>
+                <p>研修前後の行動変化を数値で追跡可能です。「やりっぱなし」を防ぎ、定着するまでフォローアップを実現。</p>
+                <div class="value-discovery">
+                    <div class="discovery-title">
+                        <span class="bulb">💡</span> 発見の例
+                    </div>
+                    <ul class="discovery-list">
+                        <li>「研修後、質問の深掘りスコアが20%向上」</li>
+                        <li>「2週間後に行動量が元に戻った兆候を検知」</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="section-footer-text fade-in-up">
+            DATA-DRIVEN SALES TRANSFORMATION
+        </div>
+    </div>
+</section>
+
+<!-- 3.7 Report Sample -->
+<section id="report" class="report section bg-alt">
+    <div class="container container-wide">
+        <div class="section-header fade-in-up"
+            style="display: flex; justify-content: space-between; align-items: flex-end;">
+            <div>
+                <span class="section-badge badge-orange">REPORT SAMPLE</span>
+                <h2 class="section-title" style="margin-bottom: 0;">実際のレポート（サンプル）</h2>
+            </div>
+            <div class="small-badge"><i data-lucide="bar-chart-2" style="width: 16px; margin-right: 4px;"></i> 定量 × 定性分析
+            </div>
+        </div>
+
+        <div class="report-app-ui fade-in-up">
+            <!-- Left: Radar Chart -->
+            <div class="report-left-panel">
+                <div class="panel-header">
+                    <span class="panel-accent-line"></span> 5フェーズプロトコル診断
+                </div>
+                <div class="radar-container">
+                    <svg viewBox="0 0 400 350" class="radar-svg">
+                        <!-- Background pentagons -->
+                        <polygon points="200,40 350,140 290,300 110,300 50,140" fill="none"
+                            stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+                        <polygon points="200,80 310,160 268,270 132,270 90,160" fill="none"
+                            stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="4 4" />
+                        <polygon points="200,120 270,180 245,240 155,240 130,180" fill="none"
+                            stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+
+                        <!-- Benchmark Area -->
+                        <polygon points="200,60 330,150 240,290 140,270 70,160" fill="rgba(80,80,90,0.3)"
+                            stroke="rgba(150,150,160,0.5)" stroke-width="1" stroke-dasharray="4 4" />
+
+                        <!-- User Score Area (Orange) -->
+                        <polygon points="200,90 310,160 290,240 180,290 90,200" fill="rgba(249,115,22,0.2)"
+                            stroke="#f97316" stroke-width="2" />
+
+                        <!-- Dots for User Score -->
+                        <circle cx="200" cy="90" r="4" fill="#111" stroke="#f97316" stroke-width="2" />
+                        <circle cx="310" cy="160" r="4" fill="#111" stroke="#f97316" stroke-width="2" />
+                        <circle cx="290" cy="240" r="4" fill="#111" stroke="#f97316" stroke-width="2" />
+                        <circle cx="180" cy="290" r="4" fill="#111" stroke="#f97316" stroke-width="2" />
+                        <circle cx="90" cy="200" r="4" fill="#111" stroke="#f97316" stroke-width="2" />
+
+                        <!-- Labels -->
+                        <text x="200" y="30" fill="#cbd5e1" font-size="12" text-anchor="middle">警戒心の除去</text>
+                        <text x="360" y="145" fill="#cbd5e1" font-size="12" text-anchor="start">信頼の構築</text>
+                        <text x="300" y="315" fill="#cbd5e1" font-size="12" text-anchor="start">課題の深掘り</text>
+                        <text x="100" y="315" fill="#cbd5e1" font-size="12" text-anchor="end">解決策の提示</text>
+                        <text x="40" y="145" fill="#cbd5e1" font-size="12" text-anchor="end">合意形成</text>
+                    </svg>
+                    <div class="radar-legend">
+                        <span><span class="dot user-dot"></span> Your Score</span>
+                        <span><span class="dot bench-dot"></span> Benchmark</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Stats & Feedback -->
+            <div class="report-right-panel">
+                <div class="stats-row">
+                    <div class="stat-box">
+                        <div class="stat-header"><i data-lucide="credit-card"></i> 顧客プロファイル</div>
+                        <div class="profile-info">
+                            <div class="profile-icon"><i data-lucide="user"></i></div>
+                            <div>
+                                <div class="profile-tag">Type_Relational</div>
+                                <div class="profile-name">関係重視型</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-header"><i data-lucide="cloud"></i> CCS相性スコア</div>
+                        <div class="ccs-score">
+                            <span class="score-lg text-accent">75</span><span class="score-sm">/100</span>
+                        </div>
+                        <div class="score-trend text-green"><i data-lucide="arrow-up" style="width: 14px;"></i> High
+                            Compatibility</div>
+                    </div>
+                </div>
+
+                <div class="breakdown-box">
+                    <div class="panel-header-sm">PHASE BREAKDOWN</div>
+                    <div class="breakdown-list">
+                        <div class="breakdown-item">
+                            <span class="bd-icon"><i data-lucide="shield" style="color: #60a5fa;"></i></span>
+                            <span class="bd-label">警戒心の除去</span>
+                            <span class="bd-value text-green">20/20 <i data-lucide="check-square"
+                                    style="width:16px;"></i></span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span class="bd-icon"><i data-lucide="heart" style="color: #f43f5e;"></i></span>
+                            <span class="bd-label">信頼の構築</span>
+                            <span class="bd-value">18/20</span>
+                        </div>
+                        <div class="breakdown-item warning-row">
+                            <span class="bd-icon"><i data-lucide="search" style="color: #94a3b8;"></i></span>
+                            <span class="bd-label">課題の深掘り</span>
+                            <span class="bd-value text-red">11/20 <i data-lucide="alert-triangle"
+                                    style="width:16px;"></i></span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span class="bd-icon"><i data-lucide="target" style="color: #f43f5e;"></i></span>
+                            <span class="bd-label">解決策の提示</span>
+                            <span class="bd-value">16/20</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feedback-box">
+                    <div class="feedback-header">
+                        <span class="bulb">💡</span> 改善アクション提案
+                    </div>
+                    <ul class="feedback-list">
+                        <li>課題深掘りフェーズでの質問が浅くなっています。「なぜ？」をもう一回重ねて深層心理にアプローチしてください。</li>
+                        <li>相手の発言後、意識的に3秒の沈黙を作ってください。相手が本音を話し始めるスペースが生まれます。</li>
+                        <li>自己開示のエピソードトークを事前に1つ用意しておきましょう。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3.8 Case Studies -->
+<section id="cases" class="cases section">
+    <div class="container container-wide">
+
+        <!-- Case 1: Enterprise -->
+        <div class="case-study-block mt-80">
+            <div class="section-header fade-in-up"
+                style="display: flex; justify-content: space-between; align-items: flex-end;">
+                <div>
+                    <span class="section-badge badge-orange">CASE STUDY: ENTERPRISE & OEM</span>
+                    <h2 class="section-title" style="margin-bottom: 0;">導入事例 - 法人/研修会社</h2>
+                </div>
+                <div class="small-badge"><i data-lucide="briefcase" style="width: 16px; margin-right: 4px;"></i>
+                    某研修会社（営業チーム20名）</div>
+            </div>
+
+            <div class="case-before-after fade-in-up">
+                <div class="case-before">
+                    <div class="panel-header-sm"><i data-lucide="alert-triangle"></i> 導入前の課題 (Before)</div>
+                    <ul class="before-list">
+                        <li>
+                            <div class="list-icon text-red">✕</div>
+                            <div class="list-content">
+                                <div class="list-title">そもそも「提案」をしていない</div>
+                                <div class="list-desc">クロージングへの恐怖心がある</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list-icon text-red">⊘</div>
+                            <div class="list-content">
+                                <div class="list-title">無駄な話が長く「何者か」が不明</div>
+                                <div class="list-desc">アイスブレイクが機能していない</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list-icon text-red">？</div>
+                            <div class="list-content">
+                                <div class="list-title">質問を深掘りできていない</div>
+                                <div class="list-desc">表面的なヒアリングに終始</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list-icon text-orange">🔒</div>
+                            <div class="list-content">
+                                <div class="list-title">自己開示ができていない</div>
+                                <div class="list-desc">心理的安全性が作れない</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="case-arrow">
+                    <div class="arrow-circle"><i data-lucide="arrow-right"></i></div>
+                </div>
+
+                <div class="case-after">
+                    <div class="panel-header-sm"><span class="stars">✨</span> Torchによる変革 (After)</div>
+                    <div class="after-cards">
+                        <div class="after-card">
+                            <div class="after-icon"><i data-lucide="users" style="color:#60a5fa;"></i></div>
+                            <div>
+                                <div class="after-title">個人ごとの改善ポイントが明確化</div>
+                                <div class="after-desc">「Aさんは沈黙が苦手」「Bさんは質問力が課題」と、個別の処方箋が即座に明らかになりました。</div>
+                            </div>
+                        </div>
+                        <div class="after-card">
+                            <div class="after-icon"><i data-lucide="refresh-cw" style="color:#60a5fa;"></i></div>
+                            <div>
+                                <div class="after-title">研修の"その後"を自動フォロー</div>
+                                <div class="after-desc">研修で学んだことが現場で実践できているかを、ログ解析で継続的にモニタリング可能に。</div>
+                            </div>
+                        </div>
+                        <div class="after-card">
+                            <div class="after-icon"><i data-lucide="rocket" style="color:#f43f5e;"></i></div>
+                            <div>
+                                <div class="after-title">OEM導入を即決</div>
+                                <div class="after-desc">自社メソッドを組み込んだ専用アプリ開発。開発費20万円〜という価格感に驚き、即断即決。</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="speech-bubble">
+                        <div class="quote-mark">💬</div> 「想像以上に安い。これならすぐ入れられる！」
+                    </div>
+                </div>
+            </div>
+            <div class="section-footer-text fade-in-up">OEM PARTNERSHIP SUCCESS STORY</div>
+        </div>
+
+        <!-- Case 2: Client Voice -->
+        <div class="case-study-block mt-80">
+            <div class="section-header fade-in-up">
+                <span class="section-badge badge-orange">CASE STUDY: CLIENT VOICE</span>
+                <h2 class="section-title">導入事例 - 実際の顧客成果</h2>
+            </div>
+
+            <div class="client-voice-layout fade-in-up">
+                <div class="client-left">
+                    <div class="voice-quote">
+                        「アドバイスいただいたように『相手の視線を意識して、3秒待つ』をしたら、今日の商談すごくスムーズにできて、見事に成約いたしました！」
+                    </div>
+                    <div class="client-profile">
+                        <div class="client-avatar"><i data-lucide="user"></i></div>
+                        <div>
+                            <div class="client-role text-accent">Torch導入クライアント様</div>
+                            <div class="client-name">堀 博貴 様 / 株式会社Raw Moon Music</div>
+                        </div>
+                    </div>
+                    <div class="sns-mockup">
+                        <div class="sns-mockup-overlay">
+                            <div class="sns-chat">
+                                <p>ありがとうございます😊<br>昨日交流会で「ボイトレに興味ある」という方に、須長さんから教わった営業トークを試してみたら...<br>なんとその場で体験レッスンのアポが取れました！！！
+                                </p>
+                                <p>今までこういうの取りこぼしてたのに、須長さんの営業アドバイスのおかげです😭<br>須長さんすごすぎ！ありがとうございます！！❤️❤️</p>
+                                <div class="chat-user">
+                                    <div class="avatar-sm"><i data-lucide="user"></i></div> ボイストレーナー / 個人事業主
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="client-right">
+                    <div class="panel-header-sm">REAL ACHIEVEMENTS</div>
+                    <div class="achievement-cards">
+                        <div class="achievement-card">
+                            <div class="achieve-icon"><i data-lucide="file-text"></i></div>
+                            <div>
+                                <div class="achieve-label">初年度からスクール事業の売上確定</div>
+                                <div class="achieve-value"><span class="text-accent">35万円</span> の契約獲得</div>
+                                <div class="achieve-sub">(営業未経験、初月から)</div>
+                            </div>
+                        </div>
+                        <div class="achievement-card">
+                            <div class="achieve-icon"><i data-lucide="handshake"></i></div>
+                            <div>
+                                <div class="achieve-label">コーチング事業でのご成約</div>
+                                <div class="achieve-value"><span class="text-accent">75万円</span> の契約獲得</div>
+                            </div>
+                        </div>
+                        <div class="achievement-card">
+                            <div class="achieve-icon"><i data-lucide="user-plus"></i></div>
+                            <div>
+                                <div class="achieve-label">ストアカ受講生の引き上げ</div>
+                                <div class="achieve-value">バックエンド <span class="text-accent">13万円</span> 成約</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="model-card">
+                        <div class="model-header"><i data-lucide="tag" class="text-accent"></i> ご活用モデル</div>
+                        <div class="model-price">1本 <span class="price-val">10,000円</span> <span
+                                class="price-tax">(税別)</span></div>
+                        <div class="model-note">
+                            <i data-lucide="info" style="width:16px;"></i> 傾向把握には5〜10本のログ解析を推奨。まず「自分の癖」を知ることからスタートできます。
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-footer-text fade-in-up">DATA DRIVEN SALES IMPROVEMENT.</div>
+        </div>
+
+    </div>
+</section>
