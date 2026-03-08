@@ -1869,6 +1869,423 @@ h6 {
 }
 
 /* =========================================
+   Legal Pages (Tokushoho & Privacy)
+   ========================================= */
+.legal-page {
+    padding-top: calc(var(--nav-height) + 60px);
+}
+
+.legal-header {
+    margin-bottom: 40px;
+}
+
+.legal-content {
+    margin-bottom: 40px;
+}
+
+.legal-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.legal-table th,
+.legal-table td {
+    padding: 20px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: left;
+    vertical-align: top;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.legal-table th {
+    width: 180px;
+    color: var(--accent-orange);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.legal-table td {
+    color: var(--text-muted);
+}
+
+.legal-table tr:last-child th,
+.legal-table tr:last-child td {
+    border-bottom: none;
+}
+
+.legal-text {
+    padding: 10px 20px;
+}
+
+.legal-intro {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.9;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.legal-section {
+    margin-bottom: 36px;
+}
+
+.legal-section h2 {
+    font-size: 1.15rem;
+    color: var(--accent-orange);
+    margin-bottom: 14px;
+    padding-left: 12px;
+    border-left: 3px solid var(--accent-orange);
+}
+
+.legal-section p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.9;
+    margin-bottom: 12px;
+}
+
+.legal-section ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.legal-section ul li {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    padding: 6px 0 6px 20px;
+    position: relative;
+}
+
+.legal-section ul li::before {
+    content: '•';
+    color: var(--accent-orange);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.contact-info-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-top: 16px;
+}
+
+.contact-info-box p {
+    margin-bottom: 4px;
+}
+
+.legal-date {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.legal-back {
+    text-align: center;
+}
+
+/* =========================================
+   Pricing Page
+   ========================================= */
+.pricing-hero {
+    padding-top: calc(var(--nav-height) + 60px);
+    position: relative;
+    overflow: hidden;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 50px;
+}
+
+.pricing-card {
+    background: var(--gradient-surface);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 36px 28px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.pricing-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+.pricing-card-featured {
+    border-color: var(--accent-orange);
+    box-shadow: 0 0 30px rgba(249, 115, 22, 0.15);
+    transform: scale(1.03);
+}
+
+.pricing-card-featured:hover {
+    transform: scale(1.03) translateY(-6px);
+}
+
+.pricing-recommended {
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gradient-glow);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 6px 24px;
+    border-radius: 0 0 12px 12px;
+}
+
+.pricing-card-header {
+    margin-bottom: 24px;
+}
+
+.pricing-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    color: var(--text-muted);
+}
+
+.pricing-icon-featured {
+    background: rgba(249, 115, 22, 0.1);
+    border-color: rgba(249, 115, 22, 0.3);
+    color: var(--accent-orange);
+}
+
+.pricing-card-header h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.pricing-price {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+}
+
+.price-currency {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--accent-orange);
+}
+
+.price-amount {
+    font-size: 2.8rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+    line-height: 1;
+}
+
+.price-unit {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-left: 4px;
+}
+
+.price-label {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-right: 8px;
+}
+
+.pricing-sub {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    line-height: 1.6;
+}
+
+.pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px;
+    flex-grow: 1;
+}
+
+.pricing-features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.pricing-features li:last-child {
+    border-bottom: none;
+}
+
+.pricing-features li i {
+    width: 18px;
+    height: 18px;
+    color: #4ade80;
+    flex-shrink: 0;
+}
+
+.pricing-btn {
+    margin-top: auto;
+}
+
+/* Consulting Plans */
+.consulting-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.consulting-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.consulting-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.consulting-card-top {
+    border-color: var(--accent-orange);
+    background: rgba(249, 115, 22, 0.03);
+}
+
+.consulting-card-inner {
+    padding: 28px 32px;
+}
+
+.consulting-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.consulting-header h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.consulting-badge {
+    background: var(--bg-surface-light);
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.badge-single {
+    background: rgba(249, 115, 22, 0.15);
+    color: var(--accent-orange);
+    border-color: rgba(249, 115, 22, 0.3);
+}
+
+.consulting-price {
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-left: auto;
+}
+
+.consulting-price .tax {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--text-muted);
+}
+
+.consulting-features {
+    list-style: none;
+    padding: 0;
+}
+
+.consulting-features li {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    padding: 5px 0 5px 16px;
+    position: relative;
+    line-height: 1.7;
+}
+
+.consulting-features li::before {
+    content: '・';
+    position: absolute;
+    left: 0;
+}
+
+.pricing-cta {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.pricing-cta-inner {
+    padding: 50px 40px;
+}
+
+.pricing-cta-inner h3 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+}
+
+.pricing-cta-inner p {
+    color: var(--text-muted);
+    margin-bottom: 28px;
+}
+
+/* Footer Legal Links */
+.footer-simple {
+    padding: 30px 0;
+}
+
+.footer-legal-links {
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.footer-legal-links a {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    transition: color 0.3s ease;
+}
+
+.footer-legal-links a:hover {
+    color: var(--accent-orange);
+}
+
+.footer-divider {
+    color: rgba(255, 255, 255, 0.15);
+    font-size: 0.85rem;
+}
+
+/* =========================================
    Animations (Scroll Reveal)
    ========================================= */
 .fade-in-up {
@@ -1915,6 +2332,24 @@ h6 {
         height: 300px;
         order: -1;
     }
+
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 50px auto 0;
+    }
+
+    .pricing-card-featured {
+        transform: none;
+    }
+
+    .pricing-card-featured:hover {
+        transform: translateY(-6px);
+    }
+
+    .consulting-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1950,5 +2385,26 @@ h6 {
 
     .contact-form {
         padding: 24px;
+    }
+
+    .legal-table th {
+        display: block;
+        width: 100%;
+        padding-bottom: 4px;
+        border-bottom: none;
+    }
+
+    .legal-table td {
+        display: block;
+        padding-top: 0;
+    }
+
+    .consulting-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .consulting-price {
+        margin-left: 0;
     }
 }
