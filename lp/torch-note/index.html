@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torch Note（トーチノート）| AI議事録 × 顧客リスト自動作成</title>
+    <meta name="description"
+        content="Torch Noteは、Zoom録画から美しいHTML議事録と顧客リストをAIが自動生成。議事録作成の手間ゼロ、商談記録は自動で蓄積。導入費¥22,000 / 月額¥5,500。">
+    <meta property="og:title" content="Torch Note | AI議事録 × 顧客リスト自動作成">
+    <meta property="og:description" content="読む議事録から見る議事録へ。Zoomの録画から、AIが完璧な議事録と顧客リストを自動作成。">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;800;900&display=swap">
+    <style>
+        /* ============================================
+   Torch LP / Torch Note LP 共通スタイル
+   ============================================ */
+
+        :root {
+            --bg-dark: #0f1117;
+            --bg-surface: #1a1d27;
+            --bg-surface-light: #24283b;
+            --bg-card: #1e2230;
+            --accent-orange: #f97316;
+            --accent-gold: #fbbf24;
+            --accent-blue: #2e7df7;
+            --accent-cyan: #00c2a8;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --text-dim: #6b7280;
+            --border: rgba(255, 255, 255, 0.08);
+            --border-strong: rgba(255, 255, 255, 0.16);
+            --gradient-orange: linear-gradient(135deg, #f97316 0%, #fbbf24 100%);
+            --gradient-glow: radial-gradient(circle at center, rgba(249, 115, 22, 0.25), transparent 70%);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.4);
+            --shadow-glow: 0 8px 32px rgba(249, 115, 22, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.75;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .lp-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(15, 17, 23, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .lp-nav-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 14px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .lp-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: 1.05rem;
+            color: var(--text-main);
+        }
+
+        .lp-logo .logo-mark {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: var(--gradient-orange);
+            display: grid;
+            place-items: center;
+            font-size: 16px;
+            color: #fff;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .lp-logo .logo-sub {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-left: 2px;
+        }
+
+        .lp-nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .lp-nav-links a {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            transition: color 0.2s;
+            font-weight: 500;
+        }
+
+        .lp-nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        .lp-nav-cta {
+            padding: 10px 20px;
+            background: var(--gradient-orange);
+            color: #fff;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            transition: all 0.2s;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .lp-nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .menu-btn {
+            display: none;
+            color: var(--text-main);
+            font-size: 24px;
+        }
+
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 80px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 900px;
+            height: 900px;
+            background: var(--gradient-glow);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(249, 115, 22, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(249, 115, 22, 0.06) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse at center, #000 30%, transparent 80%);
+            -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 80%);
+            z-index: 0;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            background: rgba(249, 115, 22, 0.12);
+            border: 1px solid rgba(249, 115, 22, 0.3);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-orange);
+            margin-bottom: 28px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-badge .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent-orange);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent-orange);
+            animation: pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(1.4);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.6rem);
+            font-weight: 900;
+            line-height: 1.3;
+            margin-bottom: 28px;
+            letter-spacing: -0.01em;
+        }
+
+        .hero h1 .accent {
+            background: var(--gradient-orange);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero h1 .strike {
+            text-decoration: line-through;
+            text-decoration-color: rgba(249, 115, 22, 0.6);
+            text-decoration-thickness: 3px;
+            color: var(--text-muted);
+        }
+
+        .hero-sub {
+            font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+            color: var(--text-muted);
+            line-height: 2;
+            max-width: 780px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            transition: all 0.25s;
+            text-align: center;
+            line-height: 1;
+        }
+
+        .btn-primary {
+            background: var(--gradient-orange);
+            color: #fff;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 36px rgba(249, 115, 22, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-main);
+            border: 1.5px solid var(--border-strong);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+            transform: translateY(-2px);
+        }
+
+        .btn-lg {
+            padding: 18px 38px;
+            font-size: 1rem;
+        }
+
+        .btn-block {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            max-width: 720px;
+            margin: 0 auto;
+            gap: 24px;
+            padding: 28px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-num {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 900;
+            background: var(--gradient-orange);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .stat-label {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section.alt {
+            background: var(--bg-surface);
+        }
+
+        .section-head {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 60px;
+        }
+
+        .section-eyebrow {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(249, 115, 22, 0.1);
+            color: var(--accent-orange);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+            font-weight: 900;
+            line-height: 1.4;
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.9;
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .pain-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            transition: all 0.25s;
+        }
+
+        .pain-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(249, 115, 22, 0.4);
+            box-shadow: var(--shadow-md);
+        }
+
+        .pain-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(249, 115, 22, 0.15);
+            color: var(--accent-orange);
+            display: grid;
+            place-items: center;
+            font-size: 22px;
+            margin-bottom: 18px;
+        }
+
+        .pain-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .pain-card p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .feature-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .feature-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-row.reverse {
+            direction: rtl;
+        }
+
+        .feature-row.reverse>* {
+            direction: ltr;
+        }
+
+        .feature-text .num {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--accent-orange);
+            background: rgba(249, 115, 22, 0.12);
+            padding: 4px 12px;
+            border-radius: 6px;
+            letter-spacing: 1.5px;
+            margin-bottom: 14px;
+        }
+
+        .feature-text h3 {
+            font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+            font-weight: 800;
+            line-height: 1.4;
+            margin-bottom: 18px;
+        }
+
+        .feature-text p {
+            color: var(--text-muted);
+            line-height: 2;
+            margin-bottom: 18px;
+            font-size: 0.95rem;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            padding: 8px 0;
+            color: var(--text-main);
+            font-size: 0.92rem;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            color: var(--accent-orange);
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .feature-visual {
+            position: relative;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            min-height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .feature-visual::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 30%, rgba(249, 115, 22, 0.12), transparent 50%);
+            pointer-events: none;
+        }
+
+        .flow-wrap {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            position: relative;
+        }
+
+        .flow-step {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            position: relative;
+            transition: all 0.25s;
+        }
+
+        .flow-step:hover {
+            border-color: rgba(249, 115, 22, 0.4);
+            transform: translateY(-4px);
+        }
+
+        .flow-num {
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 32px;
+            height: 32px;
+            background: var(--gradient-orange);
+            color: #fff;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-weight: 800;
+            font-size: 0.85rem;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .flow-icon {
+            width: 64px;
+            height: 64px;
+            margin: 16px auto 20px;
+            background: rgba(249, 115, 22, 0.12);
+            color: var(--accent-orange);
+            border-radius: 16px;
+            display: grid;
+            place-items: center;
+            font-size: 28px;
+        }
+
+        .flow-step h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .flow-step p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .flow-step:not(:last-child)::after {
+            content: '→';
+            position: absolute;
+            right: -22px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent-orange);
+            font-size: 24px;
+            font-weight: 800;
+            z-index: 2;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .price-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 36px 28px;
+            transition: all 0.25s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .price-card.featured {
+            border-color: var(--accent-orange);
+            background: linear-gradient(180deg, rgba(249, 115, 22, 0.06), var(--bg-card));
+            position: relative;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .featured-tag {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-orange);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 6px 16px;
+            border-radius: 100px;
+            letter-spacing: 1.5px;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .price-name {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .price-tagline {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-bottom: 22px;
+        }
+
+        .price-amount {
+            font-size: 2.2rem;
+            font-weight: 900;
+            background: var(--gradient-orange);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+
+        .price-amount .yen {
+            font-size: 1.2rem;
+        }
+
+        .price-amount .unit {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            -webkit-text-fill-color: var(--text-muted);
+            margin-left: 4px;
+            font-weight: 500;
+        }
+
+        .price-meta {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            padding-bottom: 22px;
+            margin-bottom: 22px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .price-features {
+            list-style: none;
+            flex: 1;
+            margin-bottom: 24px;
+        }
+
+        .price-features li {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            padding: 8px 0;
+            font-size: 0.88rem;
+            color: var(--text-main);
+        }
+
+        .price-features li::before {
+            content: '✓';
+            color: var(--accent-orange);
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(249, 115, 22, 0.08) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 100%, rgba(249, 115, 22, 0.2), transparent 60%);
+            pointer-events: none;
+        }
+
+        .cta-inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-inner h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-weight: 900;
+            margin-bottom: 18px;
+            line-height: 1.4;
+        }
+
+        .cta-inner p {
+            color: var(--text-muted);
+            margin-bottom: 36px;
+            font-size: 1rem;
+        }
+
+        .lp-footer {
+            background: var(--bg-surface);
+            padding: 50px 0 30px;
+            border-top: 1px solid var(--border);
+        }
+
+        .lp-footer-inner {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .lp-footer-links {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .lp-footer-links a {
+            color: var(--text-muted);
+            transition: color 0.2s;
+        }
+
+        .lp-footer-links a:hover {
+            color: var(--accent-orange);
+        }
+
+        .mock-window {
+            background: #f4f7fb;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            color: #1e2a38;
+            font-size: 0.82rem;
+            max-width: 100%;
+            border: 1px solid var(--border-strong);
+        }
+
+        .mock-titlebar {
+            background: #e2e8f0;
+            padding: 10px 14px;
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .mock-dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+        }
+
+        .mock-dot.r {
+            background: #ff5f56;
+        }
+
+        .mock-dot.y {
+            background: #ffbd2e;
+        }
+
+        .mock-dot.g {
+            background: #27c93f;
+        }
+
+        .mock-url {
+            margin-left: 14px;
+            font-size: 0.7rem;
+            color: #64748b;
+            background: #fff;
+            padding: 4px 10px;
+            border-radius: 6px;
+            flex: 1;
+            text-align: center;
+            max-width: 280px;
+        }
+
+        .mock-body {
+            padding: 0;
+            max-height: 480px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .mock-body::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(180deg, transparent, #f4f7fb);
+            pointer-events: none;
+        }
+
+        .mock-header {
+            background: linear-gradient(135deg, #1a3a5c 0%, #0f2540 100%);
+            color: #fff;
+            padding: 22px 26px;
+        }
+
+        .mock-header .mlabel {
+            font-size: 9px;
+            letter-spacing: 2px;
+            color: #00c2a8;
+            margin-bottom: 6px;
+        }
+
+        .mock-header h3 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .mock-header .msub {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .mock-meta {
+            display: flex;
+            gap: 6px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+
+        .mock-meta span {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.66rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mock-meta span b {
+            color: #00c2a8;
+        }
+
+        .mock-content {
+            padding: 22px 26px;
+        }
+
+        .mock-sec-hdr {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 16px 0 12px;
+        }
+
+        .mock-sec-hdr:first-child {
+            margin-top: 0;
+        }
+
+        .mock-sec-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            display: grid;
+            place-items: center;
+            font-size: 14px;
+        }
+
+        .mock-sec-icon.b {
+            background: #dbeafe;
+        }
+
+        .mock-sec-icon.g {
+            background: #d1fae5;
+        }
+
+        .mock-sec-icon.o {
+            background: #fef3c7;
+        }
+
+        .mock-sec-hdr h4 {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: #1a3a5c;
+        }
+
+        .mock-sec-hdr p {
+            font-size: 0.65rem;
+            color: #6b7a8d;
+        }
+
+        .mock-card {
+            background: #fff;
+            border: 1px solid #dce4ef;
+            border-radius: 10px;
+            padding: 14px 16px;
+            margin-bottom: 10px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+        }
+
+        .mock-summary {
+            display: flex;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .mock-summary:last-child {
+            border: none;
+        }
+
+        .mock-summary .sm-icon {
+            font-size: 14px;
+        }
+
+        .mock-summary .sm-title {
+            font-weight: 700;
+            font-size: 0.78rem;
+            color: #1a3a5c;
+            margin-bottom: 2px;
+        }
+
+        .mock-summary .sm-body {
+            font-size: 0.72rem;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        .mock-task {
+            display: flex;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            margin-bottom: 6px;
+            background: #f0fdf4;
+            border-left: 3px solid #10b981;
+        }
+
+        .mock-task.urgent {
+            background: #fff5f5;
+            border-left-color: #f5576c;
+        }
+
+        .mock-tag {
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 100px;
+            background: #dbeafe;
+            color: #1e40af;
+            flex-shrink: 0;
+            height: fit-content;
+        }
+
+        .mock-tag.t2 {
+            background: #fce7f3;
+            color: #9d174d;
+        }
+
+        .mock-task-title {
+            font-size: 0.74rem;
+            font-weight: 700;
+            color: #1a3a5c;
+            margin-bottom: 2px;
+        }
+
+        .mock-task-desc {
+            font-size: 0.66rem;
+            color: #6b7a8d;
+        }
+
+        .mock-csv {
+            font-family: 'Courier New', monospace;
+            font-size: 0.7rem;
+            background: #fff;
+            border: 1px solid #dce4ef;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .mock-csv-row {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr 1fr 1.5fr;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .mock-csv-row:last-child {
+            border: none;
+        }
+
+        .mock-csv-row>div {
+            padding: 8px 10px;
+            border-right: 1px solid #e2e8f0;
+            color: #475569;
+        }
+
+        .mock-csv-row>div:last-child {
+            border: none;
+        }
+
+        .mock-csv-row.head {
+            background: #f1f5f9;
+            font-weight: 700;
+            color: #1a3a5c;
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 900px) {
+            .lp-nav-links {
+                display: none;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .lp-nav-cta {
+                display: none;
+            }
+
+            .feature-row,
+            .feature-row.reverse {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                direction: ltr;
+            }
+
+            .flow-wrap {
+                grid-template-columns: 1fr;
+            }
+
+            .flow-step:not(:last-child)::after {
+                content: '↓';
+                right: 50%;
+                top: auto;
+                bottom: -28px;
+                transform: translateX(50%);
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .section {
+                padding: 70px 0;
+            }
+
+            .hero {
+                padding: 110px 0 60px;
+                min-height: auto;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 18px;
+            }
+
+            .lp-nav-inner {
+                padding: 12px 18px;
+            }
+
+            .price-card {
+                padding: 28px 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="lp-nav">
+        <div class="lp-nav-inner">
+            <a href="#hero" class="lp-logo">
+                <span class="logo-mark">📝</span>
+                <span>Torch Note<span class="logo-sub"> by Accomp</span></span>
+            </a>
+            <div class="lp-nav-links">
+                <a href="#problem">課題</a>
+                <a href="#sample">サンプル</a>
+                <a href="#flow">使い方</a>
+                <a href="#features">特長</a>
+                <a href="#pricing">料金</a>
+            </div>
+            <a href="#cta" class="lp-nav-cta">無料相談する</a>
+            <button class="menu-btn">≡</button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="hero" class="hero">
+        <div class="hero-grid"></div>
+        <div class="container hero-inner">
+            <div class="hero-badge">
+                <span class="dot"></span>
+                AI議事録 × 顧客リスト自動作成
+            </div>
+            <h1>
+                議事録、<span class="strike">もう書かなくていい。</span><br>
+                <span class="accent">AIが、書く。</span>
+            </h1>
+            <p class="hero-sub">
+                Zoomの録画／文字起こしを取り込むだけ。<br>
+                AIが、要点・タスク・次回予定を整理した美しいHTML議事録と、<br>
+                顧客リストを自動で生成・更新します。<br>
+                書く手間からも、Excel更新からも、解放されましょう。
+            </p>
+            <div class="hero-actions">
+                <a href="#cta" class="btn btn-primary btn-lg">無料相談する</a>
+                <a href="#sample" class="btn btn-outline btn-lg">議事録サンプルを見る →</a>
+            </div>
+            <div class="hero-stats">
+                <div>
+                    <div class="stat-num">¥22,000</div>
+                    <div class="stat-label">導入費（初期費用）</div>
+                </div>
+                <div>
+                    <div class="stat-num">¥5,500</div>
+                    <div class="stat-label">月額（税込）</div>
+                </div>
+                <div>
+                    <div class="stat-num">0分</div>
+                    <div class="stat-label">議事録の手作業時間</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem -->
+    <section id="problem" class="section alt">
+        <div class="container">
+            <div class="section-head fade-up">
+                <span class="section-eyebrow">PROBLEM</span>
+                <h2 class="section-title">こんな「事務作業」、まだ自分でやっていませんか？</h2>
+                <p class="section-desc">
+                    打合せ後の議事録作成と顧客リスト更新、<br>
+                    実はあなたの稼働時間を月10時間以上奪っているかもしれません。
+                </p>
+            </div>
+            <div class="pain-grid">
+                <div class="pain-card fade-up">
+                    <div class="pain-icon">⏱️</div>
+                    <h3>議事録に時間がかかる</h3>
+                    <p>1時間の打合せに対して、議事録作成だけで30〜60分。本来の営業活動の時間が削られる。</p>
+                </div>
+                <div class="pain-card fade-up">
+                    <div class="pain-icon">📊</div>
+                    <h3>顧客リストの更新が面倒</h3>
+                    <p>商談ごとにスプレッドシートを開いて手入力。気付けば数週間更新されないまま放置。</p>
+                </div>
+                <div class="pain-card fade-up">
+                    <div class="pain-icon">📁</div>
+                    <h3>商談記録が散在</h3>
+                    <p>メール、Notion、Slack、口頭…。「あの案件どうなった？」を探すだけで一苦労。</p>
+                </div>
+                <div class="pain-card fade-up">
+                    <div class="pain-icon">🔄</div>
+                    <h3>振り返り・引き継ぎができない</h3>
+                    <p>議事録のフォーマットがバラバラで、過去の商談から学びを抽出できない。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sample -->
+    <section id="sample" class="section">
+        <div class="container">
+            <div class="section-head fade-up">
+                <span class="section-eyebrow">OUTPUT SAMPLE</span>
+                <h2 class="section-title">こんな美しい議事録が、自動で出てきます</h2>
+                <p class="section-desc">
+                    要点サマリー、タスク、次回予定、対話ログ。<br>
+                    人が読みやすい形にAIが自動構成。そのままクライアントに共有可能なクオリティ。
+                </p>
+            </div>
+
+            <div class="feature-row fade-up">
+                <div class="feature-text">
+                    <span class="num">SAMPLE 01</span>
+                    <h3>美しいHTML議事録</h3>
+                    <p>
+                        単なる箇条書きの議事録ではありません。<br>
+                        サマリー / 決定事項 / タスク / 次回予定 / 対話ログ
+                        が構造化された、そのまま顧客に共有できるレベルのHTMLが生成されます。
+                    </p>
+                    <ul class="feature-list">
+                        <li>カード形式の見やすいレイアウト</li>
+                        <li>タスクは担当者・期限つきで自動抽出</li>
+                        <li>ブラウザで開ける単一ファイル形式</li>
+                        <li>そのまま顧客にメール送信も可能</li>
+                    </ul>
+                </div>
+                <div class="feature-visual" style="padding:20px; min-height:auto;">
+                    <div class="mock-window">
+                        <div class="mock-titlebar">
+                            <span class="mock-dot r"></span>
+                            <span class="mock-dot y"></span>
+                            <span class="mock-dot g"></span>
+                            <span class="mock-url">torch-note.app/minutes/2026-04-15</span>
+                        </div>
+                        <div class="mock-body">
+                            <div class="mock-header">
+                                <div class="mlabel">MEETING MINUTES</div>
+                                <h3>議事録 2026年4月15日 株式会社サンプル様 ヒアリング</h3>
+                                <div class="msub">参加者：佐藤・山田・(クライアント)鈴木様</div>
+                                <div class="mock-meta">
+                                    <span><b>日時:</b> 4/15 14:00-15:00</span>
+                                    <span><b>場所:</b> Zoom</span>
+                                    <span><b>議事録:</b> AI自動生成</span>
+                                </div>
+                            </div>
+                            <div class="mock-content">
+                                <div class="mock-sec-hdr">
+                                    <div class="mock-sec-icon b">📌</div>
+                                    <div>
+                                        <h4>本日のサマリー</h4>
+                                        <p>3つの重要ポイント</p>
+                                    </div>
+                                </div>
+                                <div class="mock-card">
+                                    <div class="mock-summary">
+                                        <span class="sm-icon">💡</span>
+                                        <div>
+                                            <div class="sm-title">課題：営業の属人化</div>
+                                            <div class="sm-body">トップ営業の手法が言語化されておらず、再現性がない状態。</div>
+                                        </div>
+                                    </div>
+                                    <div class="mock-summary">
+                                        <span class="sm-icon">🎯</span>
+                                        <div>
+                                            <div class="sm-title">予算感：月10万円程度を想定</div>
+                                            <div class="sm-body">研修予算の置き換えとして検討中。</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mock-sec-hdr">
+                                    <div class="mock-sec-icon o">✅</div>
+                                    <div>
+                                        <h4>タスク・ToDo</h4>
+                                        <p>2件のアクション</p>
+                                    </div>
+                                </div>
+                                <div class="mock-task urgent">
+                                    <div class="mock-tag t2">佐藤</div>
+                                    <div>
+                                        <div class="mock-task-title">提案書を4/22までに送付</div>
+                                        <div class="mock-task-desc">具体的な料金プランを含めて再提出</div>
+                                    </div>
+                                </div>
+                                <div class="mock-task">
+                                    <div class="mock-tag">鈴木様</div>
+                                    <div>
+                                        <div class="mock-task-title">社内稟議を進める</div>
+                                        <div class="mock-task-desc">来週中に意思決定の方向性を共有</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-row reverse fade-up">
+                <div class="feature-text">
+                    <span class="num">SAMPLE 02</span>
+                    <h3>顧客リストも自動で更新</h3>
+                    <p>
+                        議事録から「会社名」「担当者」「ステータス」「次回アクション」を自動抽出し、
+                        顧客リストを最新の状態に保ちます。<br>
+                        スプレッドシートを開く必要はもうありません。
+                    </p>
+                    <ul class="feature-list">
+                        <li>商談ステータスを自動判定</li>
+                        <li>次回アクションも文脈から抽出</li>
+                        <li>CSV / スプレッドシート連携可能</li>
+                        <li>Torch（商談分析）へシームレス連携</li>
+                    </ul>
+                </div>
+                <div class="feature-visual" style="padding:20px; min-height:auto;">
+                    <div class="mock-window">
+                        <div class="mock-titlebar">
+                            <span class="mock-dot r"></span>
+                            <span class="mock-dot y"></span>
+                            <span class="mock-dot g"></span>
+                            <span class="mock-url">torch-note.app/customers</span>
+                        </div>
+                        <div class="mock-body" style="max-height:none;">
+                            <div style="padding: 18px 20px; background:#fff;">
+                                <div style="font-size:0.9rem; font-weight:800; color:#1a3a5c; margin-bottom:14px;">
+                                    📋 顧客リスト（自動更新）
+                                </div>
+                                <div class="mock-csv">
+                                    <div class="mock-csv-row head">
+                                        <div>会社名</div>
+                                        <div>担当者</div>
+                                        <div>ステータス</div>
+                                        <div>次回アクション</div>
+                                    </div>
+                                    <div class="mock-csv-row">
+                                        <div>株式会社サンプル</div>
+                                        <div>鈴木様</div>
+                                        <div style="color:#10b981;">提案中</div>
+                                        <div>4/22 提案書送付</div>
+                                    </div>
+                                    <div class="mock-csv-row">
+                                        <div>ABC商事</div>
+                                        <div>田中様</div>
+                                        <div style="color:#f59e0b;">検討中</div>
+                                        <div>4/25 再ヒアリング</div>
+                                    </div>
+                                    <div class="mock-csv-row">
+                                        <div>テック合同会社</div>
+                                        <div>高橋様</div>
+                                        <div style="color:#10b981;">提案中</div>
+                                        <div>4/20 デモ実施</div>
+                                    </div>
+                                    <div class="mock-csv-row">
+                                        <div>マーケ研究所</div>
+                                        <div>伊藤様</div>
+                                        <div style="color:#1e40af;">受注</div>
+                                        <div>5/1 キックオフ</div>
+                                    </div>
+                                </div>
+                                <div style="margin-top:14px; font-size:0.7rem; color:#6b7a8d; text-align:right;">
+                                    最終更新：2026/04/15 15:02 (議事録から自動抽出)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flow -->
+    <section id="flow" class="section alt">
+        <div class="container">
+            <div class="section-head fade-up">
+                <span class="section-eyebrow">HOW IT WORKS</span>
+                <h2 class="section-title">3STEPで、議事録から解放</h2>
+                <p class="section-desc">Zoom連携なら、打合せ終了の数分後には議事録が出来上がっています。</p>
+            </div>
+            <div class="flow-wrap">
+                <div class="flow-step fade-up">
+                    <div class="flow-num">1</div>
+                    <div class="flow-icon">🎥</div>
+                    <h4>打合せを録音／録画</h4>
+                    <p>Zoomの場合は文字起こしを自動取得。録音ファイル・テキストの手動アップロードにも対応。</p>
+                </div>
+                <div class="flow-step fade-up">
+                    <div class="flow-num">2</div>
+                    <div class="flow-icon">🤖</div>
+                    <h4>AIが解析・整理</h4>
+                    <p>会話内容から要点・タスク・次回予定・顧客情報を自動抽出。所要時間は数分。</p>
+                </div>
+                <div class="flow-step fade-up">
+                    <div class="flow-num">3</div>
+                    <div class="flow-icon">✨</div>
+                    <h4>議事録＆顧客リスト完成</h4>
+                    <p>美しいHTML議事録と、最新化された顧客リストが手元に。そのまま社内・顧客共有OK。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="section">
+        <div class="container">
+            <div class="section-head fade-up">
+                <span class="section-eyebrow">WHY TORCH NOTE</span>
+                <h2 class="section-title">他の議事録ツールとの違い</h2>
+                <p class="section-desc">単なる文字起こしや要約ではない、「営業に効く」議事録ツールです。</p>
+            </div>
+
+            <div class="pain-grid">
+                <div class="pain-card fade-up">
+                    <div class="pain-icon">🎨</div>
+                    <h3>そのまま共有できる美しさ</h3>
+                    <p>カード形式・色分け・アイコン付きの構造化されたHTML。社内Wikiにも、顧客への共有にもそのまま使えます。</p>
+                </div>
+                <div class="pain-card fade-up">
+                    <div class="pain-icon">📊</div>
+                    <h3>顧客リストまで自動生成</h3>
+                    <p>「議事録だけ」じゃない。商談ステータスや次回アクションを抽出し、顧客リストを常に最新化します。</p>
+                </div>
+                <div class="pain-card fade-up">
+                    <div class="pain-icon">🔥</div>
+                    <h3>Torch（商談分析）と連携</h3>
+                    <p>蓄積した商談ログをそのままTorchで分析可能。「議事録 → 改善 → 受注」までワンストップで。</p>
+                </div>
+                <div class="pain-card fade-up">
+                    <div class="pain-icon">💴</div>
+                    <h3>圧倒的な低コスト</h3>
+                    <p>導入費¥22,000、月額¥5,500。1時間の議事録作業を月1回でも削減できれば十分元が取れます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="section alt">
+        <div class="container">
+            <div class="section-head fade-up">
+                <span class="section-eyebrow">PRICING</span>
+                <h2 class="section-title">シンプルな料金体系</h2>
+                <p class="section-desc">初期費用と月額のみ。追加課金や複雑なプランはありません。</p>
+            </div>
+            <div class="pricing-grid" style="grid-template-columns: 1fr; max-width: 520px;">
+                <div class="price-card featured fade-up">
+                    <div class="featured-tag">SIMPLE</div>
+                    <div class="price-name">Torch Note スタンダード</div>
+                    <div class="price-tagline">議事録 × 顧客リスト自動作成</div>
+
+                    <div style="display:flex; gap:24px; align-items:baseline; margin: 18px 0 8px;">
+                        <div>
+                            <div style="font-size:0.7rem; color:var(--text-muted); margin-bottom:4px;">導入費（初期）</div>
+                            <div class="price-amount" style="font-size:1.8rem;">
+                                <span class="yen">¥</span>22,000
+                            </div>
+                        </div>
+                        <div style="color:var(--text-dim); font-size:1.4rem;">＋</div>
+                        <div>
+                            <div style="font-size:0.7rem; color:var(--text-muted); margin-bottom:4px;">月額</div>
+                            <div class="price-amount" style="font-size:1.8rem;">
+                                <span class="yen">¥</span>5,500<span class="unit">/月</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="price-meta">税込価格</div>
+
+                    <ul class="price-features">
+                        <li>Zoom文字起こしから自動議事録生成</li>
+                        <li>HTML形式で美しく整形・共有可能</li>
+                        <li>顧客リストの自動抽出・更新</li>
+                        <li>CSV / スプレッドシート連携</li>
+                        <li>Torch（商談分析）への接続</li>
+                        <li>メールサポート付き</li>
+                    </ul>
+                    <a href="#cta" class="btn btn-primary btn-block">導入を相談する</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta" class="cta-section">
+        <div class="container cta-inner">
+            <h2>議事録作業から、今日で卒業しませんか？</h2>
+            <p>
+                まずは1度の打合せでお試しいただけます。<br>
+                LINEから「Torch Note気になる」とお気軽にメッセージください。
+            </p>
+            <div class="hero-actions" style="margin-bottom:0;">
+                <a href="https://lin.ee/VxNWNvY" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+                    LINEで無料相談する
+                </a>
+                <a href="../torch/index.html" class="btn btn-outline btn-lg">商談分析「Torch」も見る →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="lp-footer">
+        <div class="container lp-footer-inner">
+            <div class="lp-footer-links">
+                <a href="../../index.html">Accomp公式</a>
+                <a href="../torch/index.html">Torch</a>
+                <a href="../../pricing.html">料金詳細</a>
+                <a href="../../tokushoho.html">特定商取引法</a>
+                <a href="../../privacy.html">プライバシー</a>
+            </div>
+            <p>&copy; 2026 Accomp LLC. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach((e) => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    io.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.fade-up').forEach((el) => io.observe(el));
+
+        const nav = document.querySelector('.lp-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 30) {
+                nav.style.background = 'rgba(15, 17, 23, 0.95)';
+            } else {
+                nav.style.background = 'rgba(15, 17, 23, 0.85)';
+            }
+        });
+    </script>
+</body>
+
+</html>
