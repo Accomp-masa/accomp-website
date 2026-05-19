@@ -1226,8 +1226,37 @@
 .product-client {
     font-size: 0.8rem;
     color: var(--text-muted);
-    margin-bottom: 18px;
+    margin-bottom: 14px;
     font-family: monospace;
+}
+
+.product-impact {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 10px 12px;
+    margin-bottom: 18px;
+    background: rgba(249, 115, 22, 0.05);
+    border: 1px solid rgba(249, 115, 22, 0.18);
+    border-radius: 6px;
+    font-size: 0.83rem;
+    line-height: 1.5;
+}
+
+.impact-before {
+    color: var(--text-muted);
+}
+
+.impact-arrow {
+    color: var(--accent-orange);
+    font-weight: 700;
+    font-family: monospace;
+}
+
+.impact-after {
+    color: var(--accent-orange);
+    font-weight: 600;
 }
 
 .product-desc {
@@ -1432,6 +1461,31 @@
     .target-grid {
         grid-template-columns: 1fr;
     }
+}
+
+.security-note {
+    margin-top: 40px;
+    padding: 24px 28px;
+    background: rgba(249, 115, 22, 0.05);
+    border: 1px solid rgba(249, 115, 22, 0.2);
+    border-left: 3px solid var(--accent-orange);
+    border-radius: 8px;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+.security-note strong {
+    color: var(--accent-orange);
+    font-weight: 600;
+}
+
+.security-date {
+    display: block;
+    margin-top: 14px;
+    font-family: monospace;
+    font-size: 0.78rem;
+    opacity: 0.7;
 }
 
 .not-for-box {
