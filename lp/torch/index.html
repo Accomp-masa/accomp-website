@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Torch（トーチ）| 商談解析プラットフォーム - 営業の「勝ちパターン」をAIで可視化</title>
+    <title>Torch（トーチ）| Accomp が実装した営業特化AIの一例 — 6思考OS×5フェーズ解析</title>
     <meta name="description"
-        content="Torchは、商談ログから「なぜ売れるのか／なぜ売れないのか」をAIが分析する商談解析プラットフォーム。属人化したノウハウをデータ化し、研修効果を可視化、組織全体の営業力を底上げします。">
-    <meta property="og:title" content="Torch | 商談解析プラットフォーム">
-    <meta property="og:description" content="貴社独自の「最強の営業メソッド」を、売れるシステムへ。">
+        content="Torchは、Accompが実装した業務特化AIの一例。商談ログから「6思考OS×5フェーズ」で個人の癖と失注パターンを定量化。研修・コーチング会社向けのOEM提供にも対応します。">
+    <meta property="og:title" content="Torch | Accomp実装の営業特化AI">
+    <meta property="og:description"
+        content="Accompが実装した営業特化AIの一例。商談ログから個人の癖と失注パターンをAI解析します。">
     <meta property="og:type" content="website">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;800;900&display=swap">
@@ -241,7 +242,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
                 <a href="#pricing">料金</a>
                 <a href="#cta">お問い合わせ</a>
             </div>
-            <a href="#cta" class="lp-nav-cta">無料相談する</a>
+            <a href="#cta" class="lp-nav-cta">無料ヒアリング</a>
             <button class="menu-btn">≡</button>
         </div>
     </nav>
@@ -252,7 +253,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
         <div class="container hero-inner">
             <div class="hero-badge">
                 <span class="dot"></span>
-                商談解析プラットフォーム / OEM対応
+                Accompが実装した業務特化AIの一例 / 営業特化
             </div>
             <h1>
                 <span class="strike">「なんとなく」</span>の営業を、<br>
@@ -501,56 +502,42 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
         <div class="container">
             <div class="section-head fade-up">
                 <span class="section-eyebrow">PRICING</span>
-                <h2 class="section-title">導入規模に合わせた3つのプラン</h2>
-                <p class="section-desc">スポット利用から、組織導入、OEM提供まで。<br>※ 表示価格はすべて税抜です</p>
+                <h2 class="section-title">料金は、Accompのスキームに準拠</h2>
+                <p class="section-desc">
+                    Torchは「Accompが業務特化AIをどう作るか」のショーケースです。<br>
+                    導入・OEM展開を含むご相談は、Accomp 共通の料金スキームでお受けしています。
+                </p>
             </div>
-            <div class="pricing-grid">
-                <!-- Personal -->
+            <div class="pricing-grid" style="grid-template-columns: 1fr 1fr; max-width: 880px; margin: 0 auto;">
                 <div class="price-card fade-up">
-                    <div class="price-name">個人事業主向け</div>
-                    <div class="price-tagline">まずはここからスタート</div>
-                    <div class="price-amount"><span class="yen">¥</span>10,000<span class="unit">〜 / 1〜3本</span></div>
-                    <div class="price-meta">無料トライアル（2〜3本）あり</div>
+                    <div class="price-name">無料ヒアリング</div>
+                    <div class="price-tagline">— FIRST STEP</div>
+                    <div class="price-amount"><span class="yen">¥</span>0<span class="unit">/ 30〜60min</span></div>
                     <ul class="price-features">
-                        <li>商談ログを送るだけの簡単依頼</li>
-                        <li>定量・定性レポート即時発行</li>
-                        <li>スポット利用に最適</li>
-                        <li>独立営業・1人社長向け</li>
+                        <li>業務と課題の整理</li>
+                        <li>Torch型 / 別構成 / 既存活用の判断</li>
+                        <li>実現性の感触をその場で</li>
                     </ul>
-                    <a href="#cta" class="btn btn-outline btn-block">無料トライアルを試す</a>
+                    <a href="#cta" class="btn btn-outline btn-block">ヒアリングを予約</a>
                 </div>
 
-                <!-- Corporate -->
                 <div class="price-card featured fade-up">
                     <div class="featured-tag">RECOMMENDED</div>
-                    <div class="price-name">法人向け</div>
-                    <div class="price-tagline">傾向把握・研修効果測定に</div>
-                    <div class="price-amount"><span class="yen">¥</span>100,000<span class="unit">〜 / 5〜10本</span></div>
-                    <div class="price-meta">月額定額プラン（全社員）も相談可</div>
+                    <div class="price-name">要件定義 + 開発（MVP検証）</div>
+                    <div class="price-tagline">— STANDARD</div>
+                    <div class="price-amount"><span class="yen">¥</span>30〜80<span class="unit">万円</span></div>
                     <ul class="price-features">
-                        <li>チーム単位での傾向分析</li>
-                        <li>研修前後の効果測定に最適</li>
-                        <li>改善コンサル（オプション）</li>
-                        <li>個人別レポートも提供</li>
+                        <li>1〜2週間で動くMVPをお見せ</li>
+                        <li>貴社独自の評価基準・メソッドを実装</li>
+                        <li>OEM・自社ブランド化も相談可</li>
+                        <li>本開発はMVPを見てから判断</li>
                     </ul>
-                    <a href="#cta" class="btn btn-primary btn-block">導入を相談する</a>
-                </div>
-
-                <!-- OEM -->
-                <div class="price-card fade-up">
-                    <div class="price-name">OEM・研修会社向け</div>
-                    <div class="price-tagline">自社ブランドで提供</div>
-                    <div class="price-amount"><span class="yen">¥</span>500,000<span class="unit">〜 開発費</span></div>
-                    <div class="price-meta">＋月額利用料（ベース3万＋従量）</div>
-                    <ul class="price-features">
-                        <li>自社メソッド・評価基準の実装</li>
-                        <li>ホワイトラベル（自社ブランド化）</li>
-                        <li>継続的な収益シェアモデル</li>
-                        <li>営業資料・トーク支援あり</li>
-                    </ul>
-                    <a href="#cta" class="btn btn-outline btn-block">協業プランを相談</a>
+                    <a href="#cta" class="btn btn-primary btn-block">相談する</a>
                 </div>
             </div>
+            <p style="text-align: center; margin-top: 32px; color: var(--text-muted); font-size: 0.9rem;">
+                料金の詳細・FAQは <a href="../../pricing.html" style="color: var(--accent-orange); border-bottom: 1px solid currentColor;">Accomp 料金ページ</a> をご覧ください。
+            </p>
         </div>
     </section>
 
