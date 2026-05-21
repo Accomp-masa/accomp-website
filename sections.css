@@ -998,6 +998,276 @@
     justify-content: center;
 }
 
+.hero-tagline {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 500;
+    color: var(--text-main);
+    letter-spacing: 0.02em;
+    margin-bottom: 28px;
+    line-height: 1.6;
+    opacity: 0.92;
+}
+
+.hero-tagline::before,
+.hero-tagline::after {
+    content: '—';
+    color: var(--accent-orange);
+    margin: 0 14px;
+    font-weight: 400;
+}
+
+/* =========================================
+   Why Accomp - Narrative (4 stages)
+   ========================================= */
+.narrative {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 48px;
+}
+
+.narrative-stage {
+    padding: 36px 36px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--accent-orange);
+    border-radius: 8px;
+}
+
+.narrative-stage-label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+    font-family: monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    color: var(--accent-orange);
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.narrative-stage-num {
+    background: rgba(249, 115, 22, 0.12);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.narrative-stage h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    color: var(--text-main);
+    letter-spacing: -0.01em;
+    line-height: 1.45;
+}
+
+.narrative-stage p {
+    font-size: 0.96rem;
+    color: var(--text-muted);
+    line-height: 1.95;
+    margin-bottom: 14px;
+}
+
+.narrative-stage p:last-child {
+    margin-bottom: 0;
+}
+
+.narrative-stage strong {
+    color: var(--text-main);
+    font-weight: 600;
+    background: linear-gradient(transparent 62%, rgba(251, 191, 36, 0.28) 62%);
+    padding: 0 3px;
+}
+
+.narrative-stage blockquote {
+    margin: 18px 0;
+    padding: 18px 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 3px solid var(--accent-gold);
+    border-radius: 0 6px 6px 0;
+    font-size: 1.02rem;
+    color: var(--text-main);
+    line-height: 1.7;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.narrative-stage.promise {
+    background: linear-gradient(135deg, var(--bg-surface), rgba(249, 115, 22, 0.06));
+    border: 1px solid var(--accent-orange);
+    border-left-width: 1px;
+    text-align: center;
+    padding: 56px 40px;
+}
+
+.narrative-stage.promise .narrative-stage-label {
+    justify-content: center;
+}
+
+.narrative-stage.promise h3 {
+    font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+    background: var(--gradient-glow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    margin-bottom: 14px;
+}
+
+.narrative-stage.promise p {
+    color: var(--text-muted);
+    font-size: 0.96rem;
+}
+
+@media (max-width: 768px) {
+    .narrative-stage {
+        padding: 28px 24px;
+    }
+    .narrative-stage.promise {
+        padding: 40px 24px;
+    }
+    .narrative-stage h3 {
+        font-size: 1.15rem;
+    }
+}
+
+/* =========================================
+   Framework - 3 Layers + Evidence
+   ========================================= */
+.framework-stack {
+    margin-top: 40px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.framework-layer {
+    padding: 28px 36px;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--bg-surface);
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.framework-layer:last-child {
+    border-bottom: none;
+}
+
+.framework-layer-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    min-width: 200px;
+}
+
+.framework-layer-num {
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+.framework-layer-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-main);
+    line-height: 1.5;
+    flex: 1;
+}
+
+.framework-layer.result {
+    background: linear-gradient(135deg, var(--bg-surface), rgba(255, 255, 255, 0.03));
+}
+.framework-layer.result .framework-layer-label { color: #cbd5e1; }
+.framework-layer.result .framework-layer-num { background: rgba(203, 213, 225, 0.15); color: #e2e8f0; }
+
+.framework-layer.method {
+    background: linear-gradient(135deg, var(--bg-surface), rgba(251, 191, 36, 0.07));
+}
+.framework-layer.method .framework-layer-label { color: var(--accent-gold); }
+.framework-layer.method .framework-layer-num { background: rgba(251, 191, 36, 0.15); color: var(--accent-gold); }
+
+.framework-layer.why {
+    background: linear-gradient(135deg, var(--bg-surface), rgba(249, 115, 22, 0.1));
+}
+.framework-layer.why .framework-layer-label { color: var(--accent-orange); }
+.framework-layer.why .framework-layer-num { background: rgba(249, 115, 22, 0.18); color: var(--accent-orange); }
+
+.framework-evidence {
+    margin-top: 32px;
+    padding: 32px 36px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--accent-orange);
+    border-radius: 8px;
+}
+
+.framework-evidence-label {
+    font-family: monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    color: var(--accent-orange);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    font-weight: 500;
+}
+
+.framework-evidence-quote {
+    font-size: 1.08rem;
+    color: var(--text-main);
+    line-height: 1.8;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.framework-evidence-quote strong {
+    color: var(--accent-orange);
+    font-weight: 700;
+    background: none;
+    padding: 0;
+}
+
+.framework-evidence-quote + .framework-evidence-quote {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--border-color);
+}
+
+.framework-evidence-attribution {
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-family: monospace;
+}
+
+@media (max-width: 768px) {
+    .framework-layer {
+        padding: 22px 24px;
+        gap: 12px;
+    }
+    .framework-layer-label {
+        min-width: auto;
+    }
+    .framework-layer-text {
+        font-size: 1rem;
+        width: 100%;
+    }
+    .framework-evidence {
+        padding: 24px 22px;
+    }
+}
+
 /* =========================================
    Why Accomp - Flow Compare + Stats
    ========================================= */
