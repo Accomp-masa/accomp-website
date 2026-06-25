@@ -1269,6 +1269,281 @@
 }
 
 /* =========================================
+   Method - 内/外 二軸
+   ========================================= */
+.method-axis {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 48px;
+}
+
+.method-axis-card {
+    padding: 40px 36px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    position: relative;
+}
+
+.method-axis-card.inner { border-top: 4px solid var(--accent-gold); }
+.method-axis-card.outer { border-top: 4px solid var(--accent-orange); }
+
+.method-axis-card-direction {
+    font-family: monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    font-weight: 500;
+}
+
+.method-axis-card.inner .method-axis-card-direction { color: var(--accent-gold); }
+.method-axis-card.outer .method-axis-card-direction { color: var(--accent-orange); }
+
+.method-axis-card h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+}
+
+.method-axis-card p {
+    font-size: 0.96rem;
+    color: var(--text-muted);
+    line-height: 1.85;
+    margin-bottom: 12px;
+}
+
+.method-axis-card p:last-child { margin-bottom: 0; }
+
+.method-axis-card strong {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .method-axis { grid-template-columns: 1fr; gap: 16px; }
+    .method-axis-card { padding: 28px 24px; }
+    .method-axis-card h3 { font-size: 1.2rem; }
+}
+
+/* =========================================
+   Customer Map - 3 LEVELS
+   ========================================= */
+.customer-map {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 48px;
+}
+
+.customer-map-level {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    padding: 28px 36px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    transition: transform 0.2s;
+}
+
+.customer-map-level:hover { transform: translateX(4px); }
+
+.customer-map-level-num {
+    flex-shrink: 0;
+    font-family: monospace;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    min-width: 110px;
+}
+
+.customer-map-level.l3 { border-left: 4px solid var(--accent-orange); margin-left: 0; }
+.customer-map-level.l2 { border-left: 4px solid var(--accent-gold); margin-left: 24px; }
+.customer-map-level.l1 { border-left: 4px solid rgba(255, 255, 255, 0.25); margin-left: 48px; }
+
+.customer-map-level.l3 .customer-map-level-num { color: var(--accent-orange); }
+.customer-map-level.l2 .customer-map-level-num { color: var(--accent-gold); }
+
+.customer-map-level-content { flex: 1; }
+
+.customer-map-level h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    line-height: 1.4;
+}
+
+.customer-map-level p {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+.customer-map-level p strong { color: var(--text-main); }
+
+@media (max-width: 768px) {
+    .customer-map-level {
+        padding: 22px 24px;
+        gap: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .customer-map-level.l1 { margin-left: 16px; }
+    .customer-map-level.l2 { margin-left: 8px; }
+    .customer-map-level-num { min-width: auto; font-size: 1rem; }
+}
+
+/* =========================================
+   Showcase - Featured Card + Level Badge + Self-Proof Divider
+   ========================================= */
+.product-card.featured {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, var(--bg-surface), rgba(249, 115, 22, 0.06));
+    border: 1px solid var(--accent-orange);
+    padding: 36px;
+}
+
+.product-card.featured .product-name {
+    font-size: 1.6rem;
+}
+
+.product-level {
+    display: inline-block;
+    font-family: monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    padding: 3px 8px;
+    border-radius: 100px;
+    font-weight: 600;
+    margin-right: 6px;
+    text-transform: uppercase;
+}
+
+.product-level.l3 { background: rgba(249, 115, 22, 0.14); color: var(--accent-orange); }
+.product-level.l2 { background: rgba(251, 191, 36, 0.14); color: var(--accent-gold); }
+.product-level.l1 { background: rgba(255, 255, 255, 0.08); color: var(--text-muted); }
+.product-level.origin {
+    background: linear-gradient(135deg, var(--accent-orange), var(--accent-gold));
+    color: #1a0f00;
+}
+.product-level.self-proof {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+}
+
+.showcase-divider {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin: 16px 0 8px;
+    padding: 8px 0;
+}
+
+.showcase-divider::before,
+.showcase-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-color);
+}
+
+.showcase-divider-text {
+    font-family: monospace;
+    font-size: 0.74rem;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/* =========================================
+   Hidden Cost
+   ========================================= */
+.hidden-cost-box {
+    margin-top: 40px;
+    padding: 36px 40px;
+    background: rgba(251, 191, 36, 0.05);
+    border: 1px solid rgba(251, 191, 36, 0.18);
+    border-left: 4px solid var(--accent-gold);
+    border-radius: 8px;
+}
+
+.hidden-cost-box-label {
+    font-family: monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    font-weight: 500;
+}
+
+.hidden-cost-box h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    color: var(--text-main);
+    line-height: 1.4;
+}
+
+.hidden-cost-box-source {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 18px;
+    font-family: monospace;
+}
+
+.hidden-cost-box-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 22px;
+}
+
+.hidden-cost-box-list li {
+    padding: 12px 0 12px 24px;
+    position: relative;
+    font-size: 0.94rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.hidden-cost-box-list li:last-child { border-bottom: none; }
+
+.hidden-cost-box-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent-gold);
+    font-weight: 600;
+}
+
+.hidden-cost-box-conclusion {
+    padding-top: 18px;
+    border-top: 1px solid var(--border-color);
+    font-size: 1rem;
+    color: var(--text-main);
+    line-height: 1.7;
+    font-weight: 500;
+}
+
+.hidden-cost-box-conclusion strong {
+    color: var(--accent-gold);
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .hidden-cost-box { padding: 28px 24px; }
+}
+
+/* =========================================
    Why Accomp - Flow Compare + Stats
    ========================================= */
 .flow-compare {
