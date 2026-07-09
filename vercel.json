@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/blog", "destination": "https://accomp-aio-blog.vercel.app/blog" },
+    { "source": "/blog/:path*", "destination": "https://accomp-aio-blog.vercel.app/blog/:path*" }
+  ]
+}
