@@ -6,13 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accomp合同会社 | 無形の価値を、最短で「見える形」に。</title>
     <meta name="description"
-        content="Accompは、無形商材専門の "価値を試せる形にするパートナー"。会えば伝わる価値を、診断・システム・データ・LPにして、初めて会う人にも伝わるようにします。価値発掘から、仕組み化まで。">
+        content="Accompは、無形商材専門の "価値を試せる形にするパートナー"。データとAIで意思決定の精度を高め、会えば伝わる価値を診断・システム・データ・LPにして、初めて会う人にも伝わるようにします。">
     <meta property="og:title" content="Accomp合同会社 | 無形の価値を、最短で「見える形」に。">
     <meta property="og:description"
-        content="無形商材専門。会えば伝わる価値を、診断/システム/データ/LPで「初対面でも伝わる形」にします。価値発掘から、仕組み化まで。">
+        content="無形商材専門。データとAIで意思決定の精度を高め、会えば伝わる価値を「初対面でも伝わる形」にします。価値発掘から、仕組み化まで。">
     <meta property="og:type" content="website">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="sections.css">
+    <link rel="stylesheet" href="light.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap"
         rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -23,16 +22,16 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="logo">
-                <i data-lucide="flame" class="logo-icon"></i>
-                <span>Accomp</span>
+                <img src="assets/logo_accomp.png" alt="Accomp合同会社">
             </a>
             <div class="nav-links">
-                <a href="#why">Why</a>
-                <a href="#method">Method</a>
-                <a href="#showcase">Showcase</a>
+                <a href="#services">サービス</a>
+                <a href="#showcase">事例</a>
+                <a href="#why">選ばれる理由</a>
+                <a href="/blog/">ブログ</a>
                 <a href="pricing.html">料金</a>
             </div>
-            <a href="#contact" class="btn btn-primary nav-btn">無料の見立て</a>
+            <a href="#contact" class="btn btn-primary nav-btn">無料相談する</a>
             <button class="menu-toggle" aria-label="メニューを開く">
                 <i data-lucide="menu"></i>
             </button>
@@ -41,42 +40,496 @@
 
     <!-- Mobile Menu -->
     <div class="mobile-menu">
-        <a href="#why" class="mobile-link">Why</a>
-        <a href="#method" class="mobile-link">Method</a>
-        <a href="#showcase" class="mobile-link">Showcase</a>
+        <a href="#services" class="mobile-link">サービス</a>
+        <a href="#showcase" class="mobile-link">事例</a>
+        <a href="#why" class="mobile-link">選ばれる理由</a>
+        <a href="/blog/" class="mobile-link">ブログ</a>
         <a href="pricing.html" class="mobile-link">料金</a>
-        <a href="#contact" class="btn btn-primary mobile-btn">無料の見立て</a>
+        <a href="#contact" class="btn btn-primary mobile-btn">無料相談する</a>
     </div>
 
     <!-- 1. Hero -->
-    <section id="hero" class="hero hero-accomp section">
-        <div class="glow-bg"></div>
-        <div class="particles" id="particles"></div>
-        <div class="container hero-content fade-in-up">
-            <div class="hero-badge">FOR INTANGIBLE-VALUE PROFESSIONALS</div>
-            <p class="hero-tagline">価値発掘から、仕組み化まで</p>
-            <h1 class="hero-title">
-                無形の価値を、<br>
-                最短で<span class="text-gradient">「見える形」</span>に。
-            </h1>
-            <p class="hero-subtitle">
-                会えば伝わる価値を、<strong class="text-accent">診断 / システム / データ / LP</strong>にして、<br>
-                初めて会う人にも伝わるようにする ── それがAccompの仕事です。<br>
-                無料の見立てから、1〜2週間で動く実物まで。
-            </p>
-            <div class="hero-actions">
-                <a href="#contact" class="btn btn-primary btn-lg">無料の見立てを予約</a>
-                <a href="#showcase" class="btn btn-outline btn-lg">実例を見る <i data-lucide="arrow-right"
-                        class="icon-sm"></i></a>
+    <section id="hero" class="hero">
+        <div class="container hero-inner">
+            <div class="hero-copy fade-in-up">
+                <p class="hero-tagline">データとAIで、意思決定の精度を高める</p>
+                <h1 class="hero-title">
+                    無形の価値を、<br>
+                    最短で<em>「見える形」</em>に。
+                </h1>
+                <p class="hero-subtitle">
+                    会えば伝わる価値を、<strong>診断 / システム / データ / LP</strong> にして、初めて会う人にも伝わるように。<br>
+                    「なんとなく」の戦略から脱却し、成果につながる打ち手を共に設計・実行します。
+                </p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-primary btn-lg">無料で相談してみる <i data-lucide="arrow-right"
+                            class="icon-sm"></i></a>
+                    <a href="#showcase" class="btn btn-outline btn-lg">実例を見る</a>
+                </div>
+            </div>
+
+            <!-- Dashboard visual (CSS/SVG rebuild) -->
+            <div class="dash-wrap fade-in-right">
+                <div class="dash-float f1"><i data-lucide="trending-up"></i></div>
+                <div class="dash-float f2"><i data-lucide="search"></i></div>
+                <div class="dash-card">
+                    <div class="dash-label">集客・導線の分析</div>
+                    <div class="dash-chart">
+                        <svg viewBox="0 0 340 130" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <line x1="0" y1="30" x2="340" y2="30" stroke="#F1EDFA" stroke-width="1" />
+                            <line x1="0" y1="65" x2="340" y2="65" stroke="#F1EDFA" stroke-width="1" />
+                            <line x1="0" y1="100" x2="340" y2="100" stroke="#F1EDFA" stroke-width="1" />
+                            <path
+                                d="M0,105 C22,88 38,96 56,78 C74,60 90,84 110,68 C130,52 148,84 168,62 C182,47 194,58 200,50 C216,36 236,58 258,40 C276,26 300,40 320,24 C328,18 336,20 340,16"
+                                fill="none" stroke="#8768E7" stroke-width="2.5" stroke-linecap="round" />
+                            <path
+                                d="M0,105 C22,88 38,96 56,78 C74,60 90,84 110,68 C130,52 148,84 168,62 C182,47 194,58 200,50 C216,36 236,58 258,40 C276,26 300,40 320,24 C328,18 336,20 340,16 L340,130 L0,130 Z"
+                                fill="rgba(135,104,231,0.07)" stroke="none" />
+                            <line x1="200" y1="50" x2="200" y2="128" stroke="#D9CFF4" stroke-width="1"
+                                stroke-dasharray="4 4" />
+                            <circle cx="200" cy="50" r="5" fill="#EFA270" stroke="#fff" stroke-width="2" />
+                        </svg>
+                        <div class="dash-cvr">
+                            <div class="dash-cvr-label">CVR</div>
+                            <div class="dash-cvr-value">2.45% ↗</div>
+                            <div class="dash-cvr-diff">↑ 0.68%</div>
+                        </div>
+                    </div>
+                    <div class="dash-row">
+                        <div class="dash-panel">
+                            <div class="dash-panel-label">流入チャネル別CVR</div>
+                            <div class="dash-bars">
+                                <div class="dash-bar"><span style="width:88%;background:#8768E7;"></span></div>
+                                <div class="dash-bar"><span style="width:66%;background:#A98FEF;"></span></div>
+                                <div class="dash-bar"><span style="width:48%;background:#C9BCF2;"></span></div>
+                                <div class="dash-bar"><span style="width:30%;background:#E2D9F8;"></span></div>
+                            </div>
+                        </div>
+                        <div class="dash-panel">
+                            <div class="dash-panel-label">ユーザーの行動パターン</div>
+                            <div class="dash-donut-wrap">
+                                <svg class="dash-donut" viewBox="0 0 100 100" aria-hidden="true">
+                                    <circle cx="50" cy="50" r="40" fill="none" stroke="#8768E7" stroke-width="16"
+                                        stroke-dasharray="100.5 251.3" transform="rotate(-90 50 50)" />
+                                    <circle cx="50" cy="50" r="40" fill="none" stroke="#EFA270" stroke-width="16"
+                                        stroke-dasharray="62.8 251.3" stroke-dashoffset="-100.5"
+                                        transform="rotate(-90 50 50)" />
+                                    <circle cx="50" cy="50" r="40" fill="none" stroke="#C9BCF2" stroke-width="16"
+                                        stroke-dasharray="50.3 251.3" stroke-dashoffset="-163.3"
+                                        transform="rotate(-90 50 50)" />
+                                    <circle cx="50" cy="50" r="40" fill="none" stroke="#E9E5F5" stroke-width="16"
+                                        stroke-dasharray="37.7 251.3" stroke-dashoffset="-213.6"
+                                        transform="rotate(-90 50 50)" />
+                                </svg>
+                                <ul class="dash-legend">
+                                    <li><span class="dot" style="background:#8768E7;"></span>診断ページ</li>
+                                    <li><span class="dot" style="background:#EFA270;"></span>LP閲覧</li>
+                                    <li><span class="dot" style="background:#C9BCF2;"></span>サービス詳細</li>
+                                    <li><span class="dot" style="background:#E9E5F5;"></span>問い合わせ完了</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 2. Why Accomp - 6 stages personal narrative -->
-    <section id="why" class="section bg-alt">
+    <!-- 2. Target industries -->
+    <section class="section" style="padding-top: 56px; padding-bottom: 56px;">
+        <div class="container">
+            <div class="industries-band fade-in-up">
+                <div class="industries-title">こんなお悩みを持つ経営者の方へ</div>
+                <div class="industries-grid">
+                    <div class="industry-item">
+                        <div class="industry-icon"><i data-lucide="hand-heart"></i></div>
+                        <div class="industry-label">整体サロン</div>
+                    </div>
+                    <div class="industry-item">
+                        <div class="industry-icon"><i data-lucide="user-round-check"></i></div>
+                        <div class="industry-label">コーチング・<br>セッション</div>
+                    </div>
+                    <div class="industry-item">
+                        <div class="industry-icon"><i data-lucide="heart-pulse"></i></div>
+                        <div class="industry-label">健康経営コンサル</div>
+                    </div>
+                    <div class="industry-item">
+                        <div class="industry-icon"><i data-lucide="users"></i></div>
+                        <div class="industry-label">採用・定着支援<br>コンサル</div>
+                    </div>
+                    <div class="industry-item">
+                        <div class="industry-icon"><i data-lucide="mic"></i></div>
+                        <div class="industry-label">ポッドキャスト配信</div>
+                    </div>
+                    <div class="industry-item">
+                        <div class="industry-icon"><i data-lucide="ellipsis"></i></div>
+                        <div class="industry-label">その他<br>無形サービス</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Challenge → Value -->
+    <section class="section" style="padding-top: 32px;">
+        <div class="container">
+            <div class="cv-grid fade-in-up">
+                <div class="cv-card">
+                    <h3>こんな課題はありませんか？</h3>
+                    <ul class="cv-list">
+                        <li><i data-lucide="circle-check" class="cv-check"></i>集客や広告にお金をかけているのに、成果が見えない</li>
+                        <li><i data-lucide="circle-check" class="cv-check"></i>どこに課題があるのか分からず、改善の打ち手が見つからない</li>
+                        <li><i data-lucide="circle-check" class="cv-check"></i>データはあるのに、活用しきれていない</li>
+                        <li><i data-lucide="circle-check" class="cv-check"></i>属人化した営業・マーケの仕組みを変えたい</li>
+                    </ul>
+                </div>
+                <div class="cv-arrow"><i data-lucide="chevrons-right"></i></div>
+                <div class="cv-card value">
+                    <h3>Accompが提供する価値</h3>
+                    <ul class="cv-list">
+                        <li><i data-lucide="circle-check" class="cv-check"></i>データの分析とAIによる診断で、課題を可視化</li>
+                        <li><i data-lucide="circle-check" class="cv-check"></i>成果につながる施策を、優先順位をつけてご提案</li>
+                        <li><i data-lucide="circle-check" class="cv-check"></i>実行・検証まで伴走し、成果の最大化を支援</li>
+                        <li><i data-lucide="circle-check" class="cv-check"></i>再現性のある仕組み化で、ビジネスの成長を加速</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Services -->
+    <section id="services" class="section section-alt">
         <div class="container">
             <div class="section-header text-center fade-in-up">
-                <span class="section-badge badge-orange">WHY ACCOMP</span>
+                <span class="section-badge">SERVICES</span>
+                <h2 class="section-title">データ・AIを活用した、成果につながる3つのサービス</h2>
+            </div>
+
+            <div class="svc-grid fade-in-up">
+                <div class="svc-card">
+                    <div class="svc-head">
+                        <span class="svc-num">01</span>
+                        <h3>データ分析・診断</h3>
+                    </div>
+                    <p class="svc-desc">アクセス・導線・商談記録などを多角的に分析し、課題と改善点を可視化。</p>
+                    <div class="svc-visual">
+                        <svg viewBox="0 0 220 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <rect x="0" y="0" width="220" height="100" rx="10" fill="#fff" />
+                            <rect x="14" y="14" width="60" height="7" rx="3.5" fill="#E9E5F5" />
+                            <path d="M14,74 C34,60 48,68 64,52 C80,38 96,58 114,46 C132,34 150,50 170,36 C186,26 198,32 206,24"
+                                fill="none" stroke="#8768E7" stroke-width="2.5" stroke-linecap="round" />
+                            <circle cx="114" cy="46" r="4" fill="#EFA270" stroke="#fff" stroke-width="1.5" />
+                            <rect x="14" y="86" width="40" height="5" rx="2.5" fill="#C9BCF2" />
+                            <rect x="60" y="86" width="26" height="5" rx="2.5" fill="#E2D9F8" />
+                        </svg>
+                    </div>
+                    <ul class="svc-features">
+                        <li>集客・導線分析</li>
+                        <li>顧客インサイト分析</li>
+                        <li>課題抽出レポート</li>
+                    </ul>
+                </div>
+
+                <div class="svc-card">
+                    <div class="svc-head">
+                        <span class="svc-num">02</span>
+                        <h3>戦略設計・施策提案</h3>
+                    </div>
+                    <p class="svc-desc">分析結果をもとに、成果につながる戦略と施策を設計・ご提案。</p>
+                    <div class="svc-visual">
+                        <svg viewBox="0 0 220 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <circle cx="110" cy="50" r="34" fill="none" stroke="#C9BCF2" stroke-width="2"
+                                stroke-dasharray="6 5" />
+                            <circle cx="110" cy="16" r="11" fill="#8768E7" />
+                            <circle cx="144" cy="50" r="11" fill="#A98FEF" />
+                            <circle cx="110" cy="84" r="11" fill="#EFA270" />
+                            <circle cx="76" cy="50" r="11" fill="#C9BCF2" />
+                            <text x="110" y="20" text-anchor="middle" font-size="8" fill="#fff">分析</text>
+                            <text x="144" y="54" text-anchor="middle" font-size="8" fill="#fff">設計</text>
+                            <text x="110" y="88" text-anchor="middle" font-size="8" fill="#fff">実行</text>
+                            <text x="76" y="54" text-anchor="middle" font-size="8" fill="#573B85">検証</text>
+                        </svg>
+                    </div>
+                    <ul class="svc-features">
+                        <li>戦略設計ワークショップ</li>
+                        <li>施策プラン作成</li>
+                        <li>KPI設計・優先順位付け</li>
+                    </ul>
+                </div>
+
+                <div class="svc-card">
+                    <div class="svc-head">
+                        <span class="svc-num">03</span>
+                        <h3>実行支援・仕組み化</h3>
+                    </div>
+                    <p class="svc-desc">施策の実行支援から、再現性のある仕組み化までを伴走。</p>
+                    <div class="svc-visual">
+                        <svg viewBox="0 0 220 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <rect x="10" y="38" width="42" height="24" rx="6" fill="#EDE7FB" />
+                            <text x="31" y="54" text-anchor="middle" font-size="8" fill="#573B85">課題発見</text>
+                            <path d="M56,50 L66,50" stroke="#8A88A0" stroke-width="1.5" marker-end="none" />
+                            <rect x="68" y="38" width="42" height="24" rx="6" fill="#FDEBDD" />
+                            <text x="89" y="54" text-anchor="middle" font-size="8" fill="#A85A1A">施策実行</text>
+                            <path d="M114,50 L124,50" stroke="#8A88A0" stroke-width="1.5" />
+                            <rect x="126" y="38" width="42" height="24" rx="6" fill="#FBF3D9" />
+                            <text x="147" y="54" text-anchor="middle" font-size="8" fill="#8A6B1F">効果検証</text>
+                            <path d="M172,50 L182,50" stroke="#8A88A0" stroke-width="1.5" />
+                            <rect x="184" y="38" width="28" height="24" rx="6" fill="#8768E7" />
+                            <text x="198" y="54" text-anchor="middle" font-size="8" fill="#fff">定着</text>
+                        </svg>
+                    </div>
+                    <ul class="svc-features">
+                        <li>施策実行サポート</li>
+                        <li>効果検証・改善提案</li>
+                        <li>仕組み化・自動化支援</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Showcase -->
+    <section id="showcase" class="section">
+        <div class="container">
+            <div class="section-header text-center fade-in-up">
+                <span class="section-badge">SHOWCASE</span>
+                <h2 class="section-title">実装してきた、無形商材のためのAI。</h2>
+                <p class="section-desc">
+                    健康経営 / コーチング / ブランディング / 整体 / 採用支援...<br>
+                    それぞれの "伝わらない価値" を、見える形にしてきました。
+                </p>
+            </div>
+
+            <div class="showcase-grid fade-in-up">
+
+                <!-- FEATURED: AITECH SCHOOL -->
+                <a href="https://aitechschool.online/trial/" target="_blank" rel="noopener"
+                    class="product-card featured">
+                    <div class="product-card-header">
+                        <span class="product-level origin">FIRST PROOF</span>
+                        <span class="product-status">LEVEL 1 → 3</span>
+                    </div>
+                    <div class="product-name">AITECH SCHOOL — スクール経営再建</div>
+                    <div class="product-client">Client: 株式会社AITECH SCHOOL / Webデザインスクール</div>
+                    <div class="product-impact">
+                        <span class="impact-before">「経歴・技術」で発信</span>
+                        <span class="impact-arrow">→</span>
+                        <span class="impact-after">8ヶ月で月商10倍（40万→400万）</span>
+                    </div>
+                    <div class="product-desc">
+                        代表が "伝えたい価値" と、生徒が "買っていた理由" のズレを発掘。生徒の本音「優しそう・話しやすい」という無形の価値を言語化して発信したら、月商10倍に。この成果を機に、須長は同社の役員に登用されました（現在は退任）。
+                    </div>
+                    <div class="product-link">スクールサイトを見る</div>
+                </a>
+
+                <!-- NOVE -->
+                <a href="https://nov-po-c-smja.vercel.app/" target="_blank" rel="noopener" class="product-card">
+                    <div class="product-card-header">
+                        <span class="product-level l3">LEVEL 3</span>
+                        <span class="product-status">LIVE</span>
+                    </div>
+                    <div class="product-name">NOVE Stress Check System</div>
+                    <div class="product-client">Client: NOVE株式会社 / 公認心理師</div>
+                    <div class="product-impact">
+                        <span class="impact-before">手作業で数日</span>
+                        <span class="impact-arrow">→</span>
+                        <span class="impact-after">自動レポート（数分）</span>
+                    </div>
+                    <div class="product-desc">
+                        ストレスチェックの定型分析業務を、専門家の判断ロジックを組み込んだAIに移植。納品時間を営業・提案に回せるようになり、大手企業の分析案件受注と新規コンサル契約2社につながる。
+                    </div>
+                    <div class="product-link">実物を見る</div>
+                </a>
+
+                <!-- 海老澤さん -->
+                <div class="product-card" style="cursor: default;">
+                    <div class="product-card-header">
+                        <span class="product-level l2">LEVEL 2</span>
+                        <span class="product-status">稼働中</span>
+                    </div>
+                    <div class="product-name">感情OS診断 — 時間術コーチング</div>
+                    <div class="product-client">Client: 海老澤さん / 時間術コーチング</div>
+                    <div class="product-impact">
+                        <span class="impact-before">体験しないと伝わらない</span>
+                        <span class="impact-arrow">→</span>
+                        <span class="impact-after">診断自体が紹介装置に</span>
+                    </div>
+                    <div class="product-desc">
+                        「時間がないのは感情から」という独自メソッドを、共同開発した感情OS診断で見える化。受講前後の変化をレーダーチャートで提示。診断そのものが「これ面白い、誰が作った？」と紹介を生む装置に。
+                    </div>
+                    <div class="product-link" style="opacity: 0.7;">記事準備中</div>
+                </div>
+
+                <!-- HARBOR RIGHTS / PLOP -->
+                <a href="https://torch-branding-web.vercel.app/" target="_blank" rel="noopener" class="product-card">
+                    <div class="product-card-header">
+                        <span class="product-level l3">LEVEL 3</span>
+                        <span class="product-status">LIVE</span>
+                    </div>
+                    <div class="product-name">PLOP — Brand Analysis</div>
+                    <div class="product-client">Client: 株式会社HARBOR RIGHTS / ブランディング</div>
+                    <div class="product-impact">
+                        <span class="impact-before">思考1日かけて分析</span>
+                        <span class="impact-arrow">→</span>
+                        <span class="impact-after">集合知RAGで即解析</span>
+                    </div>
+                    <div class="product-desc">
+                        ブランディング会社の事業戦略・ポジショニング分析を、集合知RAG搭載のAI解析エンジンに実装。コンサルの思考プロセスを再現し、納品スピードを抜本的に短縮。
+                    </div>
+                    <div class="product-link">実物を見る</div>
+                </a>
+
+                <!-- PLOP Mini -->
+                <a href="https://torch-mini-diagnosis.vercel.app/" target="_blank" rel="noopener" class="product-card">
+                    <div class="product-card-header">
+                        <span class="product-level l3">LEVEL 3</span>
+                        <span class="product-status">LIVE</span>
+                    </div>
+                    <div class="product-name">PLOP Mini 診断</div>
+                    <div class="product-client">For: ブランディング見込み客向け</div>
+                    <div class="product-impact">
+                        <span class="impact-before">個別ヒアリング</span>
+                        <span class="impact-arrow">→</span>
+                        <span class="impact-after">10問で即タイプ判定</span>
+                    </div>
+                    <div class="product-desc">
+                        10問の質問に答えるだけで、AIが企業の「思考OSタイプ」を診断。集客導線として機能し、本診断への引き上げを設計。
+                    </div>
+                    <div class="product-link">実物を見る</div>
+                </a>
+
+                <!-- 窪寺さん -->
+                <a href="https://kubotera-foot-care.vercel.app/" target="_blank" rel="noopener" class="product-card">
+                    <div class="product-card-header">
+                        <span class="product-level l2">LEVEL 2</span>
+                        <span class="product-status">構築中</span>
+                    </div>
+                    <div class="product-name">体の悩み診断 — 整体サロン</div>
+                    <div class="product-client">Client: 窪寺さん / 整体サロン白金高輪</div>
+                    <div class="product-impact">
+                        <span class="impact-before">体験しないと伝わらない</span>
+                        <span class="impact-arrow">→</span>
+                        <span class="impact-after">診断+AIO で会う前に体験</span>
+                    </div>
+                    <div class="product-desc">
+                        「足首特化」という独自の強みを、体験前に伝わる形に。診断（アンケート）+ AIO で、価値を見える化しオンライン集客を効率化。手段ではなく "得られる変化" で予約を引く設計。
+                    </div>
+                    <div class="product-link">実物を見る</div>
+                </a>
+
+                <!-- OnYourSide -->
+                <div class="product-card" style="cursor: default;">
+                    <div class="product-card-header">
+                        <span class="product-level l2">LEVEL 2</span>
+                        <span class="product-status">開発中</span>
+                    </div>
+                    <div class="product-name">適性検査 + 定着支援AI</div>
+                    <div class="product-client">Client: 株式会社OnYourSide / 三澤さん・茂呂さん</div>
+                    <div class="product-impact">
+                        <span class="impact-before">感覚的な採用と定着</span>
+                        <span class="impact-arrow">→</span>
+                        <span class="impact-after">適性 / リスク / 定着をデータで支援</span>
+                    </div>
+                    <div class="product-desc">
+                        ① 求職者向け自己分析ツール、② 採用支援特化リスク診断、③ 福祉・介護業界向け定着支援AI ── 採用〜定着の3プロジェクトを並走。Torch_Originの転用で、低コスト・短期で価値検証中（5月本格稼働予定）。
+                    </div>
+                    <div class="product-link" style="opacity: 0.7;">記事準備中</div>
+                </div>
+
+                <!-- DIVIDER -->
+                <div class="showcase-divider">
+                    <span class="showcase-divider-text">SELF-PROOF — Accomp自身でも使っている</span>
+                </div>
+
+                <!-- Torch Note -->
+                <a href="lp/torch-note/" class="product-card">
+                    <div class="product-card-header">
+                        <span class="product-level self-proof">SELF-PROOF</span>
+                        <span class="product-status">LIVE</span>
+                    </div>
+                    <div class="product-name">Torch Note</div>
+                    <div class="product-client">自社実装 / 議事録 × 顧客管理</div>
+                    <div class="product-impact">
+                        <span class="impact-before">議事録作成1時間</span>
+                        <span class="impact-arrow">→</span>
+                        <span class="impact-after">録画から自動生成</span>
+                    </div>
+                    <div class="product-desc">
+                        Zoom商談の音声から議事録を自動生成、顧客リストも自動更新。Accomp自身が日々使っている、議事録×顧客管理の一体型AI。
+                    </div>
+                    <div class="product-link">詳細を見る</div>
+                </a>
+
+                <!-- Torch SaaS -->
+                <a href="lp/torch/" class="product-card">
+                    <div class="product-card-header">
+                        <span class="product-level self-proof">SELF-PROOF</span>
+                        <span class="product-status">LIVE</span>
+                    </div>
+                    <div class="product-name">Torch — 商談解析</div>
+                    <div class="product-client">自社実装 / 営業対話分析（OnYourSide定着支援に転用中）</div>
+                    <div class="product-impact">
+                        <span class="impact-before">感覚的な振り返り</span>
+                        <span class="impact-arrow">→</span>
+                        <span class="impact-after">フェーズ別の定量スコア</span>
+                    </div>
+                    <div class="product-desc">
+                        商談ログから「6思考OS×5フェーズ」で解析、個人の癖と失注パターンを定量化。"対話を解析→事実抽出→次の一手" の核は、定着支援にも応用展開中。
+                    </div>
+                    <div class="product-link">詳細を見る</div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Testimonial -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header text-center fade-in-up">
+                <span class="section-badge">CUSTOMER VOICE</span>
+                <h2 class="section-title">お客様の反応。</h2>
+                <p class="section-desc">実際にご一緒した方々から、いただいている声。</p>
+            </div>
+
+            <div class="testimonial-accomp fade-in-up">
+                <p class="testimonial-text">
+                    数日かけて作ってたことが、効率化できるイメージがわいてきました。<br>
+                    私が手動でやるより、よっぽどいいです、感激です。<br>
+                    先にこっちが楽しくて、やりたくなっちゃいます。
+                </p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">久</div>
+                    <div>
+                        <div class="testimonial-meta-name">久保田 千紘 様</div>
+                        <div class="testimonial-meta-role">NOVE株式会社 代表 / 公認心理師</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-followup fade-in-up">
+                <div class="testimonial-followup-card">
+                    <p>"須長さんと出会えてなかったら、キャパオーバーで失注してた。" — NOVE株式会社 取締役</p>
+                </div>
+                <div class="testimonial-followup-card">
+                    <p>"一人だったら、まだまだ先の話だった。" — 海老澤さん / 時間術コーチング</p>
+                </div>
+                <div class="testimonial-followup-card">
+                    <p>"日本健康経営の松本代表にも、須長さんとの素敵なご縁をいただけたこと、御礼のメッセージをしちゃいました。" — 久保田 千紘 様</p>
+                </div>
+            </div>
+
+            <p class="testimonial-supplement fade-in-up">
+                納品物は、顧客企業の部長クラスにも <span class="accent">"感動した"</span> と評価いただいています。
+            </p>
+        </div>
+    </section>
+
+    <!-- 7. Why narrative -->
+    <section id="why" class="section">
+        <div class="container">
+            <div class="section-header text-center fade-in-up">
+                <span class="section-badge">WHY ACCOMP</span>
                 <h2 class="section-title">なぜ、「無形の価値を見える形にする」のか。</h2>
                 <p class="section-desc">
                     Accomp代表 須長が、「伝わらない苦しみ」から<br>
@@ -162,11 +615,11 @@
         </div>
     </section>
 
-    <!-- 3. Method - 内/外 二軸 -->
-    <section id="method" class="section">
+    <!-- 8. Method -->
+    <section id="method" class="section section-alt">
         <div class="container">
             <div class="section-header text-center fade-in-up">
-                <span class="section-badge badge-orange">OUR METHOD</span>
+                <span class="section-badge">OUR METHOD</span>
                 <h2 class="section-title">内に「言語化」、外に「形にする」。</h2>
                 <p class="section-desc">
                     伝わらない体験価値を、<br>
@@ -191,11 +644,11 @@
         </div>
     </section>
 
-    <!-- 4. Customer Map - 3 LEVELS -->
-    <section id="customer-map" class="section bg-alt">
+    <!-- 9. Customer Map -->
+    <section id="customer-map" class="section">
         <div class="container">
             <div class="section-header text-center fade-in-up">
-                <span class="section-badge badge-orange">CUSTOMER MAP</span>
+                <span class="section-badge">CUSTOMER MAP</span>
                 <h2 class="section-title">お客様は3段階に分かれます。</h2>
                 <p class="section-desc">
                     「体験価値がどこまで言葉・形になっているか」で分かれます。<br>
@@ -229,251 +682,11 @@
         </div>
     </section>
 
-    <!-- 5. Showcase -->
-    <section id="showcase" class="section">
-        <a id="services"></a>
+    <!-- 10. Framework -->
+    <section id="framework" class="section section-alt">
         <div class="container">
             <div class="section-header text-center fade-in-up">
-                <span class="section-badge badge-orange">SHOWCASE</span>
-                <h2 class="section-title">実装してきた、無形商材のためのAI。</h2>
-                <p class="section-desc">
-                    健康経営 / コーチング / ブランディング / 整体 / 採用支援...<br>
-                    それぞれの "伝わらない価値" を、見える形にしてきました。
-                </p>
-            </div>
-
-            <div class="showcase-grid fade-in-up">
-
-                <!-- FEATURED: AITECH SCHOOL (Origin Case) -->
-                <a href="https://aitechschool.online/trial/" target="_blank" rel="noopener"
-                    class="product-card featured">
-                    <div class="product-card-header">
-                        <span class="product-level origin">FIRST PROOF</span>
-                        <span class="product-status">LEVEL 1 → 3</span>
-                    </div>
-                    <div class="product-name">AITECH SCHOOL — スクール経営再建</div>
-                    <div class="product-client">Client: 株式会社AITECH SCHOOL / Webデザインスクール</div>
-                    <div class="product-impact">
-                        <span class="impact-before">「経歴・技術」で発信</span>
-                        <span class="impact-arrow">→</span>
-                        <span class="impact-after">8ヶ月で月商10倍（40万→400万）</span>
-                    </div>
-                    <div class="product-desc">
-                        代表が "伝えたい価値" と、生徒が "買っていた理由" のズレを発掘。生徒の本音「優しそう・話しやすい」という無形の価値を言語化して発信したら、月商10倍に。この成果を機に、須長は同社の役員に登用されました（現在は退任）。
-                    </div>
-                    <div class="product-link">スクールサイトを見る</div>
-                </a>
-
-                <!-- NOVE -->
-                <a href="https://nov-po-c-smja.vercel.app/" target="_blank" rel="noopener" class="product-card">
-                    <div class="product-card-header">
-                        <span class="product-level l3">LEVEL 3</span>
-                        <span class="product-status">LIVE</span>
-                    </div>
-                    <div class="product-name">NOVE Stress Check System</div>
-                    <div class="product-client">Client: NOVE株式会社 / 公認心理師</div>
-                    <div class="product-impact">
-                        <span class="impact-before">手作業で数日</span>
-                        <span class="impact-arrow">→</span>
-                        <span class="impact-after">自動レポート（数分）</span>
-                    </div>
-                    <div class="product-desc">
-                        ストレスチェックの定型分析業務を、専門家の判断ロジックを組み込んだAIに移植。納品時間を営業・提案に回せるようになり、大手企業の分析案件受注と新規コンサル契約2社につながる。
-                    </div>
-                    <div class="product-link">実物を見る</div>
-                </a>
-
-                <!-- 海老澤さん (NEW) -->
-                <div class="product-card" style="cursor: default;">
-                    <div class="product-card-header">
-                        <span class="product-level l2">LEVEL 2</span>
-                        <span class="product-status">稼働中</span>
-                    </div>
-                    <div class="product-name">感情OS診断 — 時間術コーチング</div>
-                    <div class="product-client">Client: 海老澤さん / 時間術コーチング</div>
-                    <div class="product-impact">
-                        <span class="impact-before">体験しないと伝わらない</span>
-                        <span class="impact-arrow">→</span>
-                        <span class="impact-after">診断自体が紹介装置に</span>
-                    </div>
-                    <div class="product-desc">
-                        「時間がないのは感情から」という独自メソッドを、共同開発した感情OS診断で見える化。受講前後の変化をレーダーチャートで提示。診断そのものが「これ面白い、誰が作った？」と紹介を生む装置に。
-                    </div>
-                    <div class="product-link" style="opacity: 0.7;">記事準備中</div>
-                </div>
-
-                <!-- HARBOR RIGHTS / PLOP -->
-                <a href="https://torch-branding-web.vercel.app/" target="_blank" rel="noopener" class="product-card">
-                    <div class="product-card-header">
-                        <span class="product-level l3">LEVEL 3</span>
-                        <span class="product-status">LIVE</span>
-                    </div>
-                    <div class="product-name">PLOP — Brand Analysis</div>
-                    <div class="product-client">Client: 株式会社HARBOR RIGHTS / ブランディング</div>
-                    <div class="product-impact">
-                        <span class="impact-before">思考1日かけて分析</span>
-                        <span class="impact-arrow">→</span>
-                        <span class="impact-after">集合知RAGで即解析</span>
-                    </div>
-                    <div class="product-desc">
-                        ブランディング会社の事業戦略・ポジショニング分析を、集合知RAG搭載のAI解析エンジンに実装。コンサルの思考プロセスを再現し、納品スピードを抜本的に短縮。
-                    </div>
-                    <div class="product-link">実物を見る</div>
-                </a>
-
-                <!-- PLOP Mini -->
-                <a href="https://torch-mini-diagnosis.vercel.app/" target="_blank" rel="noopener" class="product-card">
-                    <div class="product-card-header">
-                        <span class="product-level l3">LEVEL 3</span>
-                        <span class="product-status">LIVE</span>
-                    </div>
-                    <div class="product-name">PLOP Mini 診断</div>
-                    <div class="product-client">For: ブランディング見込み客向け</div>
-                    <div class="product-impact">
-                        <span class="impact-before">個別ヒアリング</span>
-                        <span class="impact-arrow">→</span>
-                        <span class="impact-after">10問で即タイプ判定</span>
-                    </div>
-                    <div class="product-desc">
-                        10問の質問に答えるだけで、AIが企業の「思考OSタイプ」を診断。集客導線として機能し、本診断への引き上げを設計。
-                    </div>
-                    <div class="product-link">実物を見る</div>
-                </a>
-
-                <!-- 窪寺さん -->
-                <a href="https://kubotera-foot-care.vercel.app/" target="_blank" rel="noopener" class="product-card">
-                    <div class="product-card-header">
-                        <span class="product-level l2">LEVEL 2</span>
-                        <span class="product-status">構築中</span>
-                    </div>
-                    <div class="product-name">体の悩み診断 — 整体サロン</div>
-                    <div class="product-client">Client: 窪寺さん / 整体サロン白金高輪</div>
-                    <div class="product-impact">
-                        <span class="impact-before">体験しないと伝わらない</span>
-                        <span class="impact-arrow">→</span>
-                        <span class="impact-after">診断+AIO で会う前に体験</span>
-                    </div>
-                    <div class="product-desc">
-                        「足首特化」という独自の強みを、体験前に伝わる形に。診断（アンケート）+ AIO で、価値を見える化しオンライン集客を効率化。手段ではなく "得られる変化" で予約を引く設計。
-                    </div>
-                    <div class="product-link">実物を見る</div>
-                </a>
-
-                <!-- OnYourSide / 三澤さん (NEW, integrated card) -->
-                <div class="product-card" style="cursor: default;">
-                    <div class="product-card-header">
-                        <span class="product-level l2">LEVEL 2</span>
-                        <span class="product-status">開発中</span>
-                    </div>
-                    <div class="product-name">適性検査 + 定着支援AI</div>
-                    <div class="product-client">Client: 株式会社OnYourSide / 三澤さん・茂呂さん</div>
-                    <div class="product-impact">
-                        <span class="impact-before">感覚的な採用と定着</span>
-                        <span class="impact-arrow">→</span>
-                        <span class="impact-after">適性 / リスク / 定着をデータで支援</span>
-                    </div>
-                    <div class="product-desc">
-                        ① 求職者向け自己分析ツール、② 採用支援特化リスク診断、③ 福祉・介護業界向け定着支援AI ── 採用〜定着の3プロジェクトを並走。Torch_Originの転用で、低コスト・短期で価値検証中（5月本格稼働予定）。
-                    </div>
-                    <div class="product-link" style="opacity: 0.7;">記事準備中</div>
-                </div>
-
-                <!-- DIVIDER -->
-                <div class="showcase-divider">
-                    <span class="showcase-divider-text">SELF-PROOF — Accomp自身でも使っている</span>
-                </div>
-
-                <!-- Torch Note (Self-Proof) -->
-                <a href="lp/torch-note/" class="product-card">
-                    <div class="product-card-header">
-                        <span class="product-level self-proof">SELF-PROOF</span>
-                        <span class="product-status">LIVE</span>
-                    </div>
-                    <div class="product-name">Torch Note</div>
-                    <div class="product-client">自社実装 / 議事録 × 顧客管理</div>
-                    <div class="product-impact">
-                        <span class="impact-before">議事録作成1時間</span>
-                        <span class="impact-arrow">→</span>
-                        <span class="impact-after">録画から自動生成</span>
-                    </div>
-                    <div class="product-desc">
-                        Zoom商談の音声から議事録を自動生成、顧客リストも自動更新。Accomp自身が日々使っている、議事録×顧客管理の一体型AI。
-                    </div>
-                    <div class="product-link">詳細を見る</div>
-                </a>
-
-                <!-- Torch SaaS (Self-Proof) -->
-                <a href="lp/torch/" class="product-card">
-                    <div class="product-card-header">
-                        <span class="product-level self-proof">SELF-PROOF</span>
-                        <span class="product-status">LIVE</span>
-                    </div>
-                    <div class="product-name">Torch — 商談解析</div>
-                    <div class="product-client">自社実装 / 営業対話分析（OnYourSide定着支援に転用中）</div>
-                    <div class="product-impact">
-                        <span class="impact-before">感覚的な振り返り</span>
-                        <span class="impact-arrow">→</span>
-                        <span class="impact-after">フェーズ別の定量スコア</span>
-                    </div>
-                    <div class="product-desc">
-                        商談ログから「6思考OS×5フェーズ」で解析、個人の癖と失注パターンを定量化。"対話を解析→事実抽出→次の一手" の核は、定着支援にも応用展開中。
-                    </div>
-                    <div class="product-link">詳細を見る</div>
-                </a>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. Testimonial -->
-    <section class="section bg-alt">
-        <div class="container">
-            <div class="section-header text-center fade-in-up">
-                <span class="section-badge badge-orange">CUSTOMER VOICE</span>
-                <h2 class="section-title">お客様の反応。</h2>
-                <p class="section-desc">
-                    実際にご一緒した方々から、いただいている声。
-                </p>
-            </div>
-
-            <div class="testimonial-accomp fade-in-up">
-                <p class="testimonial-text">
-                    数日かけて作ってたことが、効率化できるイメージがわいてきました。<br>
-                    私が手動でやるより、よっぽどいいです、感激です。<br>
-                    先にこっちが楽しくて、やりたくなっちゃいます。
-                </p>
-                <div class="testimonial-author">
-                    <div class="testimonial-avatar">久</div>
-                    <div>
-                        <div class="testimonial-meta-name">久保田 千紘 様</div>
-                        <div class="testimonial-meta-role">NOVE株式会社 代表 / 公認心理師</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonial-followup fade-in-up">
-                <div class="testimonial-followup-card">
-                    <p>"須長さんと出会えてなかったら、キャパオーバーで失注してた。" — NOVE株式会社 取締役</p>
-                </div>
-                <div class="testimonial-followup-card">
-                    <p>"一人だったら、まだまだ先の話だった。" — 海老澤さん / 時間術コーチング</p>
-                </div>
-                <div class="testimonial-followup-card">
-                    <p>"日本健康経営の松本代表にも、須長さんとの素敵なご縁をいただけたこと、御礼のメッセージをしちゃいました。" — 久保田 千紘 様</p>
-                </div>
-            </div>
-
-            <p class="testimonial-supplement fade-in-up">
-                納品物は、顧客企業の部長クラスにも <span class="accent">"感動した"</span> と評価いただいています。
-            </p>
-        </div>
-    </section>
-
-    <!-- 7. Framework - 3 Layers + Customer Evidence -->
-    <section id="framework" class="section">
-        <div class="container">
-            <div class="section-header text-center fade-in-up">
-                <span class="section-badge badge-orange">OUR FRAMEWORK</span>
+                <span class="section-badge">OUR FRAMEWORK</span>
                 <h2 class="section-title">なぜ、AIで成果が出るのか。</h2>
                 <p class="section-desc">
                     Accompの仕事は、3層で説明できます。<br>
@@ -511,11 +724,11 @@
         </div>
     </section>
 
-    <!-- 8. Hidden Cost -->
-    <section class="section bg-alt">
+    <!-- 11. Hidden Cost -->
+    <section class="section">
         <div class="container">
             <div class="section-header text-center fade-in-up">
-                <span class="section-badge badge-orange">THE HIDDEN COST</span>
+                <span class="section-badge">THE HIDDEN COST</span>
                 <h2 class="section-title">「自分でやればいい」の落とし穴。</h2>
                 <p class="section-desc">
                     "自分でAIを触ればいい" 時代に、なぜAccompが必要か。<br>
@@ -539,11 +752,11 @@
         </div>
     </section>
 
-    <!-- 9. Process -->
-    <section id="process" class="section">
+    <!-- 12. Process -->
+    <section id="process" class="section section-alt">
         <div class="container">
             <div class="section-header text-center fade-in-up">
-                <span class="section-badge badge-orange">HOW WE WORK</span>
+                <span class="section-badge">HOW WE WORK</span>
                 <h2 class="section-title">「いつか」を、作りません。</h2>
                 <p class="section-desc">
                     抽象論で時間を使いません。<br>
@@ -576,11 +789,11 @@
         </div>
     </section>
 
-    <!-- 10. Security & Privacy -->
-    <section id="security" class="section bg-alt">
+    <!-- 13. Security -->
+    <section id="security" class="section">
         <div class="container">
             <div class="section-header text-center fade-in-up">
-                <span class="section-badge badge-orange">SECURITY &amp; PRIVACY</span>
+                <span class="section-badge">SECURITY &amp; PRIVACY</span>
                 <h2 class="section-title">お客様のデータは、AIの学習には使われません。</h2>
                 <p class="section-desc">
                     Accompが実装するAIシステムは、すべて Anthropic / OpenAI の API経由で動作します。<br>
@@ -613,11 +826,11 @@
         </div>
     </section>
 
-    <!-- 11. Pricing -->
-    <section id="pricing" class="section">
+    <!-- 14. Pricing -->
+    <section id="pricing" class="section section-alt">
         <div class="container">
             <div class="section-header text-center fade-in-up">
-                <span class="section-badge badge-orange">PRICING</span>
+                <span class="section-badge">PRICING</span>
                 <h2 class="section-title">料金は、シンプル。</h2>
                 <p class="section-desc">
                     過大に約束せず、過小にも見積もらない。<br>
@@ -657,46 +870,83 @@
         </div>
     </section>
 
-    <!-- 12. Contact -->
-    <section id="contact" class="section bg-alt">
+    <!-- 15. CTA band / Contact -->
+    <section id="contact" class="section">
         <div class="container">
-            <div class="contact-box fade-in-up">
-                <div class="contact-label">— GET IN TOUCH</div>
-                <h2 class="contact-title">「伝えたいのに、伝わらない」価値が、ありますか。</h2>
-                <p class="contact-sub">
-                    30〜60分の無料の見立てで、AI化・仕組み化の実現性をお伝えします。<br>
-                    資料を読むより、話した方が早いことが多いです。
-                </p>
-                <div class="contact-actions">
-                    <a href="https://lin.ee/VxNWNvY" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="margin-right: 4px;">
-                            <path
-                                d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314" />
-                        </svg>
-                        LINEで問い合わせる
-                    </a>
-                    <a href="mailto:accomp0930@gmail.com" class="btn btn-outline btn-lg">
-                        <i data-lucide="mail" class="icon-sm"></i>
-                        メールで問い合わせる
-                    </a>
+            <div class="cta-band fade-in-up">
+                <div class="cta-band-copy">
+                    <h2>まずは、現状の課題を<br>一緒に整理しませんか？</h2>
+                    <p>
+                        「伝えたいのに、伝わらない」価値があれば、お声がけください。<br>
+                        無料の見立てでは、貴社の状況をヒアリングし、改善のヒントをお持ち帰りいただけます。
+                    </p>
+                    <div class="contact-meta">
+                        <strong>須長 正行</strong>（すなが まさゆき）<br>
+                        Accomp合同会社 代表 / accomp0930@gmail.com
+                    </div>
                 </div>
-                <div class="contact-meta">
-                    <strong>須長 正行</strong>（すなが まさゆき）<br>
-                    Accomp合同会社 代表<br>
-                    accomp0930@gmail.com
+                <div class="cta-consult-card">
+                    <div class="cta-consult-icon"><i data-lucide="calendar-days"></i></div>
+                    <h3>無料の見立てを予約する</h3>
+                    <p>オンラインで30〜60分程度のご相談。この段階で終了も全然OKです。</p>
+                    <div class="cta-consult-actions">
+                        <a href="https://lin.ee/VxNWNvY" target="_blank" rel="noopener" class="btn btn-primary">
+                            LINEで問い合わせる <i data-lucide="arrow-right" class="icon-sm"></i>
+                        </a>
+                        <a href="mailto:accomp0930@gmail.com" class="btn btn-outline">
+                            <i data-lucide="mail" class="icon-sm"></i> メールで問い合わせる
+                        </a>
+                    </div>
                 </div>
+                <img src="assets/photo_consultant.png" alt="" class="cta-photo">
             </div>
         </div>
     </section>
 
+    <!-- 16. Footer features -->
+    <div class="container">
+        <div class="footer-features fade-in-up">
+            <div class="footer-feature">
+                <div class="footer-feature-icon"><i data-lucide="brain-circuit"></i></div>
+                <div>
+                    <h4>AI×データの専門性</h4>
+                    <p>最新のAI技術とデータ分析で、精度の高い診断を実現</p>
+                </div>
+            </div>
+            <div class="footer-feature">
+                <div class="footer-feature-icon"><i data-lucide="award"></i></div>
+                <div>
+                    <h4>豊富な実績</h4>
+                    <p>多様な業種のコンサル・無形商材を支援</p>
+                </div>
+            </div>
+            <div class="footer-feature">
+                <div class="footer-feature-icon"><i data-lucide="handshake"></i></div>
+                <div>
+                    <h4>伴走型の支援</h4>
+                    <p>戦略から実行まで、二人三脚で成果を追求</p>
+                </div>
+            </div>
+            <div class="footer-feature">
+                <div class="footer-feature-icon"><i data-lucide="shield-check"></i></div>
+                <div>
+                    <h4>安心のセキュリティ</h4>
+                    <p>データの取り扱いは厳重に管理し、安心してご相談いただけます</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
-    <footer class="footer footer-simple">
+    <footer class="footer">
         <div class="container">
             <div class="footer-bottom">
                 <div class="footer-legal-links">
                     <a href="tokushoho.html">特定商取引法に基づく表記</a>
                     <span class="footer-divider">|</span>
                     <a href="privacy.html">プライバシーポリシー</a>
+                    <span class="footer-divider">|</span>
+                    <a href="/blog/">ブログ</a>
                     <span class="footer-divider">|</span>
                     <a href="pricing.html">料金</a>
                 </div>
