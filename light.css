@@ -1563,3 +1563,44 @@ h1, h2, h3, h4 { color: var(--heading); font-weight: 700; line-height: 1.4; }
     .hero-actions .btn { width: 100%; }
     .contact-actions .btn { width: 100%; }
 }
+
+/* ===== Addendum v1: notes, legends, alt-cost, 3-feature row ===== */
+.stats-source-note {
+    margin-top: 14px;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.stats-source-note a { color: var(--primary); font-weight: 700; }
+
+.dash-note {
+    margin-top: 10px;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    text-align: right;
+}
+
+.level-legend {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.product-alt-cost {
+    padding: 8px 14px;
+    margin-bottom: 14px;
+    background: var(--bg-lavender);
+    border-radius: 8px;
+    font-size: 0.8rem;
+    color: var(--primary-deep);
+    line-height: 1.7;
+    font-weight: 500;
+}
+
+.footer-features.features-3 { grid-template-columns: repeat(3, 1fr); }
+
+@media (max-width: 900px) {
+    .footer-features.features-3 { grid-template-columns: 1fr; }
+}
