@@ -1604,3 +1604,11 @@ h1, h2, h3, h4 { color: var(--heading); font-weight: 700; line-height: 1.4; }
 @media (max-width: 900px) {
     .footer-features.features-3 { grid-template-columns: 1fr; }
 }
+
+.industries-target {
+    text-align: center;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin: -22px 0 30px;
+    line-height: 1.8;
+}
