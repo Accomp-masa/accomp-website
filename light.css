@@ -407,8 +407,8 @@ h1, h2, h3, h4 { color: var(--heading); font-weight: 700; line-height: 1.4; }
 
 .industries-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 18px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px 18px;
 }
 
 .industry-item { text-align: center; }
@@ -542,6 +542,87 @@ h1, h2, h3, h4 { color: var(--heading); font-weight: 700; line-height: 1.4; }
     border-radius: 50%;
     background: var(--accent);
 }
+
+/* ===== Deliverables (お渡しする実物) ===== */
+.deliverables { margin-top: 52px; }
+
+.deliverables-title {
+    text-align: center;
+    font-size: 1.12rem;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 26px;
+}
+
+.deliverables-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.deliverable-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: var(--shadow-card);
+    padding: 24px 22px;
+}
+
+.deliverable-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: var(--bg-lavender);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+}
+
+.deliverable-icon svg, .deliverable-icon i { width: 20px; height: 20px; }
+
+.deliverable-card h4 { font-size: 0.98rem; margin-bottom: 8px; }
+.deliverable-card p { font-size: 0.84rem; color: var(--text-muted); line-height: 1.8; }
+
+@media (max-width: 900px) {
+    .deliverables-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 540px) {
+    .deliverables-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== Inline CTA / note links ===== */
+.cta-inline-note {
+    font-size: 0.95rem;
+    color: var(--text);
+    line-height: 1.95;
+    margin-bottom: 18px;
+}
+
+.testimonial-note-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 0.88rem;
+}
+
+.testimonial-note-link:hover { color: var(--primary-dark); }
+
+.testimonial-followup-attr {
+    margin-top: 10px !important;
+    font-size: 0.78rem !important;
+    color: var(--text-muted) !important;
+}
+
+.narrative-note-link a {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.narrative-note-link a:hover { color: var(--primary-dark); }
 
 /* ===== Showcase (light product cards) ===== */
 .showcase-grid {
