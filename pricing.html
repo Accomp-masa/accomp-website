@@ -16,10 +16,46 @@
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "\u306a\u305c30\u301c80\u4e07\u5186\u306e\u5e45\u304c\u3042\u308b\u306e\uff1f", "acceptedAnswer": {"@type": "Answer", "text": "\u696d\u52d9\u306e\u8907\u96d1\u5ea6\u3084\u65e2\u5b58\u30b7\u30b9\u30c6\u30e0\u3068\u306e\u9023\u643a\u6709\u7121\u3067\u5909\u52d5\u3057\u307e\u3059\u3002\u30d2\u30a2\u30ea\u30f3\u30b0\u5f8c\u306b\u30b9\u30b3\u30fc\u30d7\u3092\u64e6\u308a\u5408\u308f\u305b\u3066\u4e0a\u9650\u3092\u6c7a\u3081\u3066\u304b\u3089\u7740\u624b\u3059\u308b\u305f\u3081\u3001\u9752\u5929\u4e95\u306b\u306f\u306a\u308a\u307e\u305b\u3093\u3002"}},
-        {"@type": "Question", "name": "\u76f8\u8ac7\u5185\u5bb9\u304c\u6c7a\u307e\u3063\u3066\u3044\u306a\u304f\u3066\u3082\u5927\u4e08\u592b\u3067\u3059\u304b\uff1f", "acceptedAnswer": {"@type": "Answer", "text": "\u5927\u4e08\u592b\u3067\u3059\u3002\u7121\u6599\u306e\u898b\u7acb\u3066\u3067\u306f\u3001\u8a71\u3057\u306a\u304c\u3089\u8ab2\u984c\u3092\u4e00\u7dd2\u306b\u8a00\u8449\u306b\u3057\u3066\u3044\u304d\u307e\u3059\u3002"}},
-        {"@type": "Question", "name": "\u9014\u4e2d\u3067\u7d42\u4e86\u3057\u305f\u3044\u5834\u5408\u306f\uff1f", "acceptedAnswer": {"@type": "Answer", "text": "\u8a66\u4f5c\uff08MVP\uff09\u3092\u898b\u3066\u9055\u3046\u3068\u601d\u3063\u305f\u3089\u3001\u305d\u306e\u6bb5\u968e\u3067\u6253\u3061\u5207\u308aOK\u3067\u3059\u3002\u672c\u958b\u767a\u306b\u9032\u3080\u304b\u306f\u5b9f\u7269\u3092\u898b\u3066\u304b\u3089\u5224\u65ad\u3067\u304d\u307e\u3059\u3002"}},
-        {"@type": "Question", "name": "\u7d0d\u54c1\u7269\u306f\u8ab0\u306e\u3082\u306e\uff1f", "acceptedAnswer": {"@type": "Answer", "text": "\u539f\u5247\u3068\u3057\u3066\u7d0d\u54c1\u7269\u306e\u6240\u6709\u6a29\u30fb\u5229\u7528\u6a29\u306f\u30af\u30e9\u30a4\u30a2\u30f3\u30c8\u306b\u5e30\u5c5e\u3057\u307e\u3059\u3002"}}
+        {
+          "@type": "Question",
+          "name": "なぜ30〜80万円の幅があるの？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "業務の複雑度や既存システムとの連携有無で変動します。ヒアリング後にスコープを擦り合わせて上限を決めてから着手するため、青天井にはなりません。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "相談内容が決まっていなくても大丈夫ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "問題ありません。商談記録や現在のサービス内容を確認し、どこから整理するべきかを一緒に考えます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "いきなり大きな開発契約になりますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "最初から大規模な開発は行いません。必要に応じて1〜2週間程度で試作品を制作し、実際に確認してから進め方を決めます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "顧客情報や商談データを渡しても安全ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "データの種類や機密性を確認し、利用範囲を合意したうえで取り扱います。必要に応じてAPIや法人向け環境を利用します。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "納品物は誰のもの？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "原則として納品物の所有権・利用権はクライアントに帰属します。"
+          }
+        }
       ]
     }
     </script>
@@ -39,7 +75,7 @@
                 <a href="/blog/">ブログ</a>
                 <a href="pricing.html">料金</a>
             </div>
-            <a href="index.html#contact" class="btn btn-primary nav-btn">無料相談する</a>
+            <a href="index.html#contact" class="btn btn-primary nav-btn">無料の見立てを予約する</a>
             <button class="menu-toggle" aria-label="メニューを開く">
                 <i data-lucide="menu"></i>
             </button>
@@ -53,17 +89,17 @@
         <a href="index.html#why" class="mobile-link">選ばれる理由</a>
         <a href="/blog/" class="mobile-link">ブログ</a>
         <a href="pricing.html" class="mobile-link">料金</a>
-        <a href="index.html#contact" class="btn btn-primary mobile-btn">無料相談する</a>
+        <a href="index.html#contact" class="btn btn-primary mobile-btn">無料の見立てを予約する</a>
     </div>
 
     <!-- Pricing Hero -->
     <section class="section page-top">
         <div class="container">
             <div class="section-header text-center fade-in-up">
-                <span class="section-badge badge-orange">PRICING</span>
+                <span class="section-badge badge-orange">料金</span>
                 <h1 class="section-title">料金は、シンプル。</h1>
                 <p class="section-desc">
-                    まずは無料ヒアリングから。実現性の感触をお伝えします。<br>
+                    まずは無料の見立てから。実現性の感触をお伝えします。<br>
                     この段階で終了も全然OKです。
                 </p>
                 <p class="section-desc" style="font-size: 0.85rem; margin-top: 8px; opacity: 0.8;">※ 表示価格はすべて税抜です</p>
@@ -72,7 +108,7 @@
             <div class="pricing-accomp-grid fade-in-up">
                 <div class="pricing-accomp-card">
                     <div class="pricing-accomp-tier">— FIRST STEP</div>
-                    <div class="pricing-accomp-name">無料ヒアリング</div>
+                    <div class="pricing-accomp-name">無料の見立て</div>
                     <div class="pricing-accomp-amount">¥0<span class="unit">/ 30〜60min × 1〜2回</span></div>
                     <ul class="pricing-accomp-features">
                         <li>業務と課題の整理</li>
@@ -97,7 +133,7 @@
             </div>
 
             <div class="pricing-accomp-cta fade-in-up">
-                <a href="index.html#contact" class="btn btn-primary btn-lg">無料ヒアリングを予約する</a>
+                <a href="index.html#contact" class="btn btn-primary btn-lg">無料の見立てを予約する</a>
             </div>
         </div>
     </section>
@@ -106,7 +142,7 @@
     <section class="section bg-alt">
         <div class="container">
             <div class="section-header text-center fade-in-up">
-                <span class="section-badge badge-orange">FAQ</span>
+                <span class="section-badge badge-orange">よくあるご質問</span>
                 <h2 class="section-title">よくあるご質問</h2>
             </div>
 
@@ -117,7 +153,7 @@
                         ヒアリング後にスコープを擦り合わせて、上限を決めてから着手するので、青天井になることはありません。</p>
                 </div>
                 <div class="pricing-faq-card">
-                    <h4>無料ヒアリング後の流れは？</h4>
+                    <h4>無料の見立ての後の流れは？</h4>
                     <p>感触をお伝えした後、無理に進めることはありません。「面白そう」と思っていただけたら、要件定義と見積もりを出して、合意できたらMVP着手という流れです。</p>
                 </div>
                 <div class="pricing-faq-card">
@@ -138,6 +174,10 @@
                     <p>大丈夫です。「なんとなくモヤモヤしている」状態からで構いません。無料の見立てでは、話しながら課題を一緒に言葉にしていきます。「話すうちに考えが整理された」という声を多くいただいています。</p>
                 </div>
                 <div class="pricing-faq-card">
+                    <h4>顧客情報や商談データを渡しても安全ですか？</h4>
+                    <p>データの種類や機密性を確認し、利用範囲を合意したうえで取り扱います。必要に応じてAPIや法人向け環境を利用します。</p>
+                </div>
+                <div class="pricing-faq-card">
                     <h4>納品物は誰のもの？</h4>
                     <p>原則、納品物の所有権・利用権はクライアント様に帰属します。
                         OEM/ホワイトレーベル提供を希望される場合も対応可能です。</p>
@@ -150,10 +190,10 @@
     <section class="section">
         <div class="container">
             <div class="contact-box fade-in-up">
-                <div class="contact-label">— GET IN TOUCH</div>
+                <div class="contact-label">— お問い合わせ</div>
                 <h2 class="contact-title">まずは、業務の話を聞かせてください。</h2>
                 <p class="contact-sub">
-                    30〜60分の無料ヒアリングで、AI化の実現性をお伝えします。<br>
+                    30〜60分の無料の見立てで、AI化の実現性をお伝えします。<br>
                     資料を読むより、話した方が早いことが多いです。
                 </p>
                 <div class="contact-actions">
@@ -162,11 +202,11 @@
                             <path
                                 d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314" />
                         </svg>
-                        LINEで問い合わせる
+                        LINEで見立てを予約する
                     </a>
                     <a href="mailto:accomp0930@gmail.com" class="btn btn-outline btn-lg">
                         <i data-lucide="mail" class="icon-sm"></i>
-                        メールで問い合わせる
+                        メールで見立てを予約する
                     </a>
                 </div>
                 <div class="contact-meta">
