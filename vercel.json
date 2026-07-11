@@ -1,6 +1,16 @@
 {
   "rewrites": [
     { "source": "/blog", "destination": "https://accomp-aio-blog.vercel.app/blog" },
-    { "source": "/blog/:path(.*)", "destination": "https://accomp-aio-blog.vercel.app/blog/:path" }
+    { "source": "/blog/:path(.*)", "destination": "https://accomp-aio-blog.vercel.app/blog/:path" },
+    { "source": "/services", "destination": "https://accomp-aio-blog.vercel.app/services" },
+    { "source": "/services/:path(.*)", "destination": "https://accomp-aio-blog.vercel.app/services/:path" },
+    { "source": "/industries", "destination": "https://accomp-aio-blog.vercel.app/industries" },
+    { "source": "/industries/:path(.*)", "destination": "https://accomp-aio-blog.vercel.app/industries/:path" },
+    { "source": "/cases", "destination": "https://accomp-aio-blog.vercel.app/cases" },
+    { "source": "/cases/:path(.*)", "destination": "https://accomp-aio-blog.vercel.app/cases/:path" },
+    { "source": "/compare", "destination": "https://accomp-aio-blog.vercel.app/compare" },
+    { "source": "/compare/:path(.*)", "destination": "https://accomp-aio-blog.vercel.app/compare/:path" },
+    { "source": "/about", "destination": "https://accomp-aio-blog.vercel.app/about" },
+    { "source": "/about/:path(.*)", "destination": "https://accomp-aio-blog.vercel.app/about/:path" }
   ]
 }

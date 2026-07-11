@@ -35,4 +35,5 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
+Sitemap: https://www.accomp.site/sitemap.xml
 Sitemap: https://www.accomp.site/blog/sitemap-index.xml
