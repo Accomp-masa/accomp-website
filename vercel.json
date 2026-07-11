@@ -11,6 +11,7 @@
     { "source": "/compare", "destination": "https://accomp-aio-blog.vercel.app/compare" },
     { "source": "/compare/:path(.*)", "destination": "https://accomp-aio-blog.vercel.app/compare/:path" },
     { "source": "/about", "destination": "https://accomp-aio-blog.vercel.app/about" },
-    { "source": "/about/:path(.*)", "destination": "https://accomp-aio-blog.vercel.app/about/:path" }
+    { "source": "/about/:path(.*)", "destination": "https://accomp-aio-blog.vercel.app/about/:path" },
+    { "source": "/sitemap-:rest(.*)", "destination": "https://accomp-aio-blog.vercel.app/sitemap-:rest" }
   ]
 }
